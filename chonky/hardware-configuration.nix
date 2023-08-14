@@ -33,7 +33,7 @@
       set -x
       ${pkgs.coreutils-full}/bin/cp -r ${config.boot.loader.efi.efiSysMountPoint}/EFI /boot/efis/ata-TS64GSSD370_D299992734-part1
       set +x
-    ''
+    '';
   };
 
   fileSystems = {
@@ -96,20 +96,20 @@
   swapDevices = [
     {
       device = "/dev/disk/by-id/ata-TS64GSSD370_D260800539-part4";
-      discardPolicy = mkDefault "both";
+      discardPolicy = "both";
       randomEncryption = {
         enable = true;
-        allowDiscards = mkDefault true;
+        allowDiscards = true;
       };
-    };
+    }
     {
       device = "/dev/disk/by-id/ata-TS64GSSD370_D299992734-part4";
-      discardPolicy = mkDefault "both";
+      discardPolicy = "both";
       randomEncryption = {
         enable = true;
-        allowDiscards = mkDefault true;
+        allowDiscards = true;
       };
-    };
+    }
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
