@@ -13,13 +13,28 @@
 
   outputs = { self, arion, home-manager, nixpkgs } @ inputs: {
     nixosConfigurations = {
+
       nixos-web-1 = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
-          ./configuration.nix
-          ./upgrade-diff.nix
+          ./nixos-web-1/hardware-configuration.nix
+          ./common/configuration.nix
+          ./nixos-web-1/configuration.nix
+          ./common/upgrade-diff.nix
+          ./nixos-web-1/arion-configuration.nix
           arion.nixosModules.arion
-          ./arion-configuration.nix
+          inputs.home-manager.nixosModules.home-manager
+        ];
+      };
+
+      chonky = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ 
+          ./chonky/hardware-configuration.nix
+          ./common/configuration.nix
+          ./chonky/configuration.nix
+          ./common/upgrade-diff.nix
+          arion.nixosModules.arion
           inputs.home-manager.nixosModules.home-manager
         ];
       };
