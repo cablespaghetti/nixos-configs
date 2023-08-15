@@ -1,7 +1,9 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-    unstable.url = "github:nixos/nixpkgs-channels/nixos-unstable";
+    # You can access packages and modules from different nixpkgs revs at the
+    # same time. See 'unstable-packages' overlay in 'overlays/default.nix'.
+    nixpkgs-unstable.url = "github:nixos/nixpkgs-channels/nixos-unstable";
     arion = {
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";

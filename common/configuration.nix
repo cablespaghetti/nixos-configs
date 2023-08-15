@@ -2,10 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, modules, inputs, ... }: let
-  unstable = import inputs.unstable { config = { allowUnfree=true; }; };
-in
-{
+{ config, pkgs, modules, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Set your time zone.
