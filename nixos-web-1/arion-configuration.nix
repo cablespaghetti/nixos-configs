@@ -1,9 +1,5 @@
-{ pkgs, ... }: {
-  environment.systemPackages = [
-    pkgs.arion
-    pkgs.docker-client
-  ];
-  
+{pkgs, ...}: {
+  environment.systemPackages = [pkgs.arion pkgs.docker-client];
 
   virtualisation = {
     podman = {
@@ -13,9 +9,7 @@
     };
     arion = {
       backend = "podman-socket";
-      projects.example.settings = {
-        imports = [ ./arion-compose.nix ];
-      };
+      projects.example.settings = {imports = [./arion-compose.nix];};
     };
   };
 

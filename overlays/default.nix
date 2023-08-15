@@ -1,8 +1,7 @@
 # This file defines overlays
-{ inputs, ... }:
-{
+{inputs, ...}: {
   # This one brings our custom packages from the 'pkgs' directory
-  additions = final: _prev: import ../pkgs { pkgs = final; };
+  additions = final: _prev: import ../pkgs {pkgs = final;};
 
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
@@ -22,7 +21,5 @@
     };
   };
 
-  unstable-tailscale = final: _prev: {
-    tailscale = _prev.unstable.tailscale;
-  }; 
+  unstable-tailscale = final: _prev: {tailscale = _prev.unstable.tailscale;};
 }
