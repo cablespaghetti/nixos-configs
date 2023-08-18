@@ -20,6 +20,4 @@
       config.allowUnfree = true;
     };
   };
-
-  unstable-tailscale = final: _prev: {tailscale = _prev.unstable.tailscale;};
 }

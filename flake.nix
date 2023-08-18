@@ -45,6 +45,7 @@
           ./chonky/hardware-configuration.nix
           ./common/configuration.nix
           ./chonky/configuration.nix
+          ./chonky/jellyfin.nix
           ./common/upgrade-diff.nix
           arion.nixosModules.arion
           inputs.home-manager.nixosModules.home-manager

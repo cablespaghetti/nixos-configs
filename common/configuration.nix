@@ -27,7 +27,7 @@
   };
 
   nixpkgs = {
-    overlays = [flake.overlays.unstable-packages flake.overlays.unstable-tailscale];
+    overlays = [flake.overlays.unstable-packages];
   };
 
   # List packages installed in system profile. To search, run:
@@ -69,6 +69,7 @@
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "server";
+    package = pkgs.unstable.tailscale;
   };
 
   # Open ports in the firewall.

@@ -9,4 +9,5 @@
 }: {
   networking.hostName = "chonky";
   networking.hostId = "8ad47da0";
+  services.zfs.autoscrub.enable = true;
 }
