@@ -6,7 +6,7 @@
 }: {
   services.printing = {
     enable = true;
-    drivers = [brlaser epson-escpr];
+    drivers = [pkgs.brlaser pkgs.epson-escpr];
     browsing = true;
     listenAddresses = ["*:631"];
     allowFrom = ["all"];
