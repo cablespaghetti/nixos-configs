@@ -73,11 +73,12 @@
   };
   networking.nftables.enable = true;
   services.resolved.enable = true;
+  networking.useNetworkd = true;
   networking.firewall = {
     enable = true;
-    trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
-    allowedTCPPorts = [ 22 ];
+    trustedInterfaces = ["tailscale0"];
+    allowedUDPPorts = [config.services.tailscale.port];
+    allowedTCPPorts = [22];
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
