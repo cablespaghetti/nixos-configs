@@ -8,4 +8,8 @@
   ...
 }: {
   networking.hostName = "nixos-web-1";
+  networking.firewall = {
+    allowedUDPPorts = [config.services.tailscale.port 631];
+    allowedTCPPorts = [22 631];
+  };
 }

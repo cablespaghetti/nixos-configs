@@ -10,4 +10,8 @@
   networking.hostName = "chonky";
   networking.hostId = "8ad47da0";
   services.zfs.autoScrub.enable = true;
+  networking.firewall = {
+    allowedUDPPorts = [config.services.tailscale.port 631];
+    allowedTCPPorts = [22 631];
+  };
 }
