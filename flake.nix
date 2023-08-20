@@ -4,10 +4,6 @@
     # You can access packages and modules from different nixpkgs revs at the
     # same time. See 'unstable-packages' overlay in 'overlays/default.nix'.
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    arion = {
-      url = "github:hercules-ci/arion";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +12,6 @@
 
   outputs = {
     self,
-    arion,
     home-manager,
     nixpkgs,
     ...
@@ -32,8 +27,6 @@
           ./common/configuration.nix
           ./nixos-web-1/configuration.nix
           ./common/upgrade-diff.nix
-          ./common/arion-configuration.nix
-          arion.nixosModules.arion
           inputs.home-manager.nixosModules.home-manager
           {config._module.args = {flake = self;};}
         ];
@@ -48,8 +41,6 @@
           ./chonky/jellyfin.nix
           ./chonky/printer.nix
           ./common/upgrade-diff.nix
-          ./common/arion-configuration.nix
-          arion.nixosModules.arion
           inputs.home-manager.nixosModules.home-manager
           {config._module.args = {flake = self;};}
         ];
