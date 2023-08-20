@@ -40,6 +40,7 @@
           ./chonky/configuration.nix
           ./chonky/jellyfin.nix
           ./chonky/printer.nix
+          ./chonky/joplin.nix
           ./common/upgrade-diff.nix
           inputs.home-manager.nixosModules.home-manager
           {config._module.args = {flake = self;};}
