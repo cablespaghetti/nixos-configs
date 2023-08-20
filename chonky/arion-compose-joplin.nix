@@ -1,6 +1,6 @@
 {
   docker-compose.volumes = {
-    "joplin-data" = {};
+    "joplin-data" = {driver = "zfs";};
   };
   project.name = "joplin";
   services = {
