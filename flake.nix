@@ -32,7 +32,7 @@
           ./common/configuration.nix
           ./nixos-web-1/configuration.nix
           ./common/upgrade-diff.nix
-          ./nixos-web-1/arion-configuration.nix
+          ./common/arion-configuration.nix
           arion.nixosModules.arion
           inputs.home-manager.nixosModules.home-manager
           {config._module.args = {flake = self;};}
@@ -48,6 +48,7 @@
           ./chonky/jellyfin.nix
           ./chonky/printer.nix
           ./common/upgrade-diff.nix
+          ./common/arion-configuration.nix
           arion.nixosModules.arion
           inputs.home-manager.nixosModules.home-manager
           {config._module.args = {flake = self;};}
