@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   config.virtualisation.oci-containers.containers = {
     joplin = {
       image = "docker.io/joplin/server:2.12.1-beta";
@@ -12,5 +16,12 @@
         SQLITE_DATABASE = "/data/db.sqlite";
       };
     };
+  };
+  config.services.caddy = {
+    enable = true;
+    package = pkgs.cloudflare-caddy;
+    virtualHosts."localhost".extraConfig = ''
+      respond "Hello, world!"
+    '';
   };
 }

@@ -8,19 +8,37 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    cloudflare-caddy = {
+      url = "github:burmudar/nix-cloudflare-caddy";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = {
     self,
-    home-manager,
     nixpkgs,
+    home-manager,
+    cloudflare-caddy,
+    flake-utils,
     ...
-  } @ inputs: {
-    # Custom packages and modifications, exported as overlays
+  } @ inputs: let
     overlays = import ./overlays {inherit inputs;};
-
+    pkgs =
+      (inputs.flake-utils.lib.eachSystem ["aarch64-darwin" "x86_64-linux"] (system: {
+        pkgs = import inputs.nixpkgs {
+          inherit system;
+          overlays = [
+            cloudflare-caddy.overlay
+            overlays.unstable-packages
+          ];
+          config = {allowUnfree = true;};
+        };
+      }))
+      .pkgs;
+  in {
     nixosConfigurations = {
-      nixos-web-1 = inputs.nixpkgs.lib.nixosSystem {
+      nixos-web-1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./nixos-web-1/hardware-configuration.nix
@@ -28,11 +46,11 @@
           ./nixos-web-1/configuration.nix
           ./common/upgrade-diff.nix
           inputs.home-manager.nixosModules.home-manager
-          {config._module.args = {flake = self;};}
         ];
+        specialArgs = {pkgs = pkgs.x86_64-linux;};
       };
 
-      chonky = inputs.nixpkgs.lib.nixosSystem {
+      chonky = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./chonky/hardware-configuration.nix
@@ -43,8 +61,8 @@
           ./chonky/joplin.nix
           ./common/upgrade-diff.nix
           inputs.home-manager.nixosModules.home-manager
-          {config._module.args = {flake = self;};}
         ];
+        specialArgs = {pkgs = pkgs.x86_64-linux;};
       };
     };
   };
