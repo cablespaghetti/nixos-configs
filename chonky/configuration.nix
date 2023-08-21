@@ -14,4 +14,5 @@
     allowedUDPPorts = [config.services.tailscale.port 631];
     allowedTCPPorts = [22 631];
   };
+  environment.systemPackages = with pkgs; [get_iplayer];
 }
