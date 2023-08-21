@@ -25,7 +25,7 @@
   } @ inputs: let
     overlays = import ./overlays {inherit inputs;};
     pkgs =
-      (inputs.flake-utils.lib.eachSystem ["aarch64-darwin" "x86_64-linux"] (system: {
+      (inputs.flake-utils.lib.eachSystem ["x86_64-linux"] (system: {
         pkgs = import inputs.nixpkgs {
           inherit system;
           overlays = [
