@@ -17,6 +17,7 @@
       };
     };
   };
+  config.environment.systemPackages = with pkgs; [cloudflare-caddy];
   config.services.caddy = {
     enable = true;
     package = pkgs.cloudflare-caddy;
