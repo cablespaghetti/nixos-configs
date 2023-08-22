@@ -12,7 +12,7 @@
   services.zfs.autoScrub.enable = true;
   networking.firewall = {
     allowedUDPPorts = [config.services.tailscale.port 631];
-    allowedTCPPorts = [22 631];
+    allowedTCPPorts = [22 631 80 443];
   };
   environment.systemPackages = with pkgs; [get_iplayer];
 }

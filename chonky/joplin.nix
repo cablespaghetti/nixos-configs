@@ -17,14 +17,17 @@
       };
     };
   };
-  config.environment.systemPackages = with pkgs; [cloudflare-caddy];
-  # because we're using a custom caddy package
-  systemd.services.caddy.serviceConfig.AmbientCapabilities = "CAP_NET_BIND_SERVICE";
+  # Greatly inspired by https://github.com/burmudar/dotfiles/blob/0d2ee4a9d2af95b3fe76c88cd34c16077ea044bb/nix/hosts/media/configuration.nix#L145
+  # Needed because we're using a custom caddy package
+  config.systemd.services.caddy.serviceConfig.AmbientCapabilities = "CAP_NET_BIND_SERVICE";
   config.services.caddy = {
     enable = true;
     package = pkgs.cloudflare-caddy;
-    virtualHosts."localhost".extraConfig = ''
-      respond "Hello, world!"
+    virtualHosts."chonky.buffalo-squeaker.ts.net".extraConfig = ''
+      reverse_proxy http://localhost:8096
     '';
+  };
+  config.services.tailscale = {
+    permitCertUid = "caddy";
   };
 }
