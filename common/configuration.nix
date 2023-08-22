@@ -36,6 +36,7 @@
     git
     tmux
     bmon
+    alejandra
     inputs.agenix.packages."${system}".default
   ];
 
