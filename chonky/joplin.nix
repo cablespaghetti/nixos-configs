@@ -21,7 +21,7 @@
   # Needed because we're using a custom caddy package
   config.systemd.services.caddy.serviceConfig.AmbientCapabilities = "CAP_NET_BIND_SERVICE";
   config.age.secrets.caddy-cloudflare = {
-    file = ./secrets/caddy-cloudflare.age;
+    file = ../secrets/caddy-cloudflare.age;
     owner = config.services.caddy.user;
     group = config.services.caddy.group;
   };
@@ -30,14 +30,15 @@
     enable = true;
     package = pkgs.cloudflare-caddy;
     email = "sam@weston.world";
-    globalConfig = ''
-      acme_dns cloudflare {env.CLOUDFLARE_TOKEN}
-    '';
     virtualHosts."joplin.weston.world".extraConfig = ''
+      tls {
+        dns cloudflare {env.CLOUDFLARE_TOKEN}
+        resolvers 1.1.1.1
+      }
       reverse_proxy http://127.0.0.1:22300
     '';
     virtualHosts."chonky.buffalo-squeaker.ts.net".extraConfig = ''
-      reverse_proxy http://localhost:8096
+      reverse_proxy http://127.0.0.1:8096
     '';
   };
   config.services.tailscale = {
