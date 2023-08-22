@@ -13,6 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
+    agenix.url = "github:ryantm/agenix";
   };
 
   outputs = {
@@ -21,6 +22,7 @@
     home-manager,
     cloudflare-caddy,
     flake-utils,
+    agenix,
     ...
   } @ inputs: let
     overlays = import ./overlays {inherit inputs;};
@@ -45,9 +47,13 @@
           ./common/configuration.nix
           ./nixos-web-1/configuration.nix
           ./common/upgrade-diff.nix
-          inputs.home-manager.nixosModules.home-manager
+          home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
         ];
-        specialArgs = {pkgs = pkgs.x86_64-linux;};
+        specialArgs = {
+          pkgs = pkgs.x86_64-linux;
+          inputs = inputs;
+        };
       };
 
       chonky = nixpkgs.lib.nixosSystem {
@@ -60,9 +66,13 @@
           ./chonky/printer.nix
           ./chonky/joplin.nix
           ./common/upgrade-diff.nix
-          inputs.home-manager.nixosModules.home-manager
+          home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
         ];
-        specialArgs = {pkgs = pkgs.x86_64-linux;};
+        specialArgs = {
+          pkgs = pkgs.x86_64-linux;
+          inputs = inputs;
+        };
       };
     };
   };

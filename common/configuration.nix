@@ -5,6 +5,7 @@
   config,
   pkgs,
   modules,
+  inputs,
   ...
 }: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -27,7 +28,16 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [wget htop vim curl git tmux bmon];
+  environment.systemPackages = with pkgs; [
+    wget
+    htop
+    vim
+    curl
+    git
+    tmux
+    bmon
+    inputs.agenix.packages."${system}".default
+  ];
 
   home-manager = {
     useGlobalPkgs = true;

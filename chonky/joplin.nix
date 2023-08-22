@@ -23,6 +23,13 @@
   config.services.caddy = {
     enable = true;
     package = pkgs.cloudflare-caddy;
+    email = "sam@weston.world";
+    globalConfig = ''
+      acme_dns cloudflare
+    '';
+    virtualHosts."joplin.weston.world".extraConfig = ''
+      reverse_proxy http://127.0.0.1:22300
+    '';
     virtualHosts."chonky.buffalo-squeaker.ts.net".extraConfig = ''
       reverse_proxy http://localhost:8096
     '';
