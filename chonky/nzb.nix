@@ -6,9 +6,13 @@
 }: {
   services.sabnzbd = {
     enable = true;
-    configFile = "/var/lib/sabnzbd/sabnzbd-sam.ini";
   };
   services.sonarr = {
+    enable = true;
+    openFirewall = true;
+    group = "jellyfin";
+  };
+  services.radarr = {
     enable = true;
     openFirewall = true;
     group = "jellyfin";
