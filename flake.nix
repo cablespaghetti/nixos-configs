@@ -63,6 +63,7 @@
           ./common/configuration.nix
           ./chonky/configuration.nix
           ./chonky/jellyfin.nix
+          ./chonky/transmission.nix
           ./chonky/printer.nix
           ./chonky/joplin.nix
           ./common/upgrade-diff.nix
