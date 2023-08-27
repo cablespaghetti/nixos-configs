@@ -46,6 +46,7 @@
           ./hosts/nixos-web-1/hardware-configuration.nix
           ./common/configuration.nix
           ./hosts/nixos-web-1/configuration.nix
+          ./hosts/nixos-web-1/wordpress.nix
           ./common/upgrade-diff.nix
           ./roles/servers/configuration.nix
           home-manager.nixosModules.home-manager
