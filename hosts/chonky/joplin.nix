@@ -21,7 +21,7 @@
   # Needed because we're using a custom caddy package
   config.systemd.services.caddy.serviceConfig.AmbientCapabilities = "CAP_NET_BIND_SERVICE";
   config.age.secrets.caddy-cloudflare = {
-    file = ../secrets/caddy-cloudflare.age;
+    file = ../../secrets/caddy-cloudflare.age;
     owner = config.services.caddy.user;
     group = config.services.caddy.group;
   };
