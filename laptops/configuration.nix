@@ -122,7 +122,6 @@
     gnomeExtensions.vitals
     joplin
     joplin-desktop
-    tailscale
     signal-desktop
     spotify-tui
     transmission-gtk
