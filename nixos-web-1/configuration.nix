@@ -12,5 +12,4 @@
     allowedUDPPorts = [config.services.tailscale.port 631];
     allowedTCPPorts = [22 631];
   };
-  virtualisation.arion.projects.example.settings = {imports = [./arion-compose.nix];};
 }
