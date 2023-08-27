@@ -88,6 +88,7 @@
         ./common/configuration.nix
         ./common/upgrade-diff.nix
         ./laptops/configuration.nix
+        home-manager.nixosModules.home-manager
         agenix.nixosModules.default
       ];
       specialArgs = {

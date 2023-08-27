@@ -47,7 +47,7 @@
   networking.useDHCP = false;
   networking.interfaces.wlp2s0.useDHCP = true;
 
-  nixpkgs.hostPlatform = "x86_64-linux";
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
 
   hardware.sensor.iio.enable = true;
