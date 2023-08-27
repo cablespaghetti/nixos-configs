@@ -135,7 +135,7 @@
     kubectl
     kubectx
     k9s
-    helm
+    kubernetes-helm
     nmap
     mysql80
     postgresql
