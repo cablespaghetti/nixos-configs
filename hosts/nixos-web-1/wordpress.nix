@@ -2,66 +2,75 @@
   config,
   pkgs,
   ...
-}: {
-  tonywinnNginxConfig = builtins.toFile "default.conf" ''
-    server {
-      listen       80;
-      server_name  localhost;
-      root   /var/www/html;
+}: let
+  tonywinnNginxConfig = pkgs.writeTextFile {
+    name = "tonywinnNginxConfig";
+    text = ''
+      server {
+        listen       80;
+        server_name  localhost;
+        root   /var/www/html;
 
-      location / {
-          index  index.php;
-          try_files $uri $uri/ /index.php?$args;
+        location / {
+            index  index.php;
+            try_files $uri $uri/ /index.php?$args;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+
+        # pass the PHP scripts to FastCGI server listening on port 9000
+        #
+        location ~ \.php$ {
+            #root           html;
+            fastcgi_pass   tonywinn-wordpress:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  /var/www/html/$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+            expires max;
+        }
+
+        location = /robots.txt {
+            allow all;
+        }
+
+        # Deny all attempts to access hidden files such as .htaccess, .htpasswd, .DS_Store (Mac).
+        # Keep logging the requests to parse later (or to pass to firewall utilities such as fail2ban)
+        location ~ /\. {
+            deny all;
+        }
+
+        # Deny access to any files with a .php extension in the uploads directory
+        # Works in sub-directory installs and also in multisite network
+        # Keep logging the requests to parse later (or to pass to firewall utilities such as fail2ban)
+        location ~* /(?:uploads|files)/.*\.php$ {
+            deny all;
+        }
       }
-
-      #error_page  404              /404.html;
-
-      # redirect server error pages to the static page /50x.html
-      #
-      error_page   500 502 503 504  /50x.html;
-      location = /50x.html {
-          root   /usr/share/nginx/html;
-      }
-
-      # pass the PHP scripts to FastCGI server listening on port 9000
-      #
-      location ~ \.php$ {
-          #root           html;
-          fastcgi_pass   tonywinn-wordpress:9000;
-          fastcgi_index  index.php;
-          fastcgi_param  SCRIPT_FILENAME  /var/www/html/$fastcgi_script_name;
-          include        fastcgi_params;
-      }
-
-      location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
-          expires max;
-      }
-
-      location = /robots.txt {
-          allow all;
-      }
-
-      # Deny all attempts to access hidden files such as .htaccess, .htpasswd, .DS_Store (Mac).
-      # Keep logging the requests to parse later (or to pass to firewall utilities such as fail2ban)
-      location ~ /\. {
-          deny all;
-      }
-
-      # Deny access to any files with a .php extension in the uploads directory
-      # Works in sub-directory installs and also in multisite network
-      # Keep logging the requests to parse later (or to pass to firewall utilities such as fail2ban)
-      location ~* /(?:uploads|files)/.*\.php$ {
-          deny all;
-      }
-    }
-  '';
+    '';
+  };
+in {
+  config.virtualisation.podman.defaultNetwork.settings.dns_enabled = true;
   config.age.secrets.tonywinn-wordpress = {
     file = ../../secrets/tonywinn-wordpress.age;
+  };
+  config.networking.firewall.interfaces."podman0" = {
+    allowedUDPPorts = [53];
+    allowedTCPPorts = [53];
   };
   config.virtualisation.oci-containers.containers = {
     tonywinn-db = {
       image = "docker.io/library/mariadb:11";
-      ports = ["3306"];
+      ports = ["127.0.0.1:3306:3306"];
       environment = {
         MARIADB_DATABASE = "tonywinn";
         MARIADB_USER = "tonywinn";
