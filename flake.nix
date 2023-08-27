@@ -43,11 +43,11 @@
       nixos-web-1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./nixos-web-1/hardware-configuration.nix
+          ./hosts/nixos-web-1/hardware-configuration.nix
           ./common/configuration.nix
-          ./nixos-web-1/configuration.nix
+          ./hosts/nixos-web-1/configuration.nix
           ./common/upgrade-diff.nix
-          ./servers/configuration.nix
+          ./roles/servers/configuration.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];
@@ -60,16 +60,16 @@
       chonky = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./chonky/hardware-configuration.nix
+          ./hosts/chonky/hardware-configuration.nix
           ./common/configuration.nix
-          ./chonky/configuration.nix
-          ./chonky/jellyfin.nix
-          ./chonky/transmission.nix
-          ./chonky/nzb.nix
-          ./chonky/printer.nix
-          ./chonky/joplin.nix
+          ./hosts/chonky/configuration.nix
+          ./hosts/chonky/jellyfin.nix
+          ./hosts/chonky/transmission.nix
+          ./hosts/chonky/nzb.nix
+          ./hosts/chonky/printer.nix
+          ./hosts/chonky/joplin.nix
           ./common/upgrade-diff.nix
-          ./servers/configuration.nix
+          ./roles/servers/configuration.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];
@@ -82,11 +82,11 @@
       nixos-yoga = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./nixos-yoga/hardware-configuration.nix
-          ./nixos-yoga/configuration.nix
+          ./hosts/nixos-yoga/hardware-configuration.nix
+          ./hosts/nixos-yoga/configuration.nix
           ./common/configuration.nix
           ./common/upgrade-diff.nix
-          ./laptops/configuration.nix
+          ./roles/laptops/configuration.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];

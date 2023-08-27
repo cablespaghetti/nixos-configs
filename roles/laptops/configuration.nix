@@ -121,7 +121,7 @@
     brave
     gnomeExtensions.vitals
     joplin
-    joplin-desktop
+    joplin-desktopgit
     signal-desktop
     spotify-tui
     transmission-gtk
