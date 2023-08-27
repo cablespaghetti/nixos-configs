@@ -115,7 +115,6 @@
   environment.systemPackages = with pkgs; [
     blackbox-terminal
     imagemagick
-    (pkgs.callPackage <agenix/pkgs/agenix.nix> {})
 
     # Can't live without these either
     bitwarden
