@@ -47,6 +47,7 @@
           ./common/configuration.nix
           ./nixos-web-1/configuration.nix
           ./common/upgrade-diff.nix
+          ./servers/configuration.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];
@@ -68,6 +69,7 @@
           ./chonky/printer.nix
           ./chonky/joplin.nix
           ./common/upgrade-diff.nix
+          ./servers/configuration.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];
@@ -75,6 +77,22 @@
           pkgs = pkgs.x86_64-linux;
           inputs = inputs;
         };
+      };
+    };
+
+    nixos-yoga = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./nixos-yoga/hardware-configuration.nix
+        ./nixos-yoga/configuration.nix
+        ./common/configuration.nix
+        ./common/upgrade-diff.nix
+        ./laptops/configuration.nix
+        agenix.nixosModules.default
+      ];
+      specialArgs = {
+        pkgs = pkgs.x86_64-linux;
+        inputs = inputs;
       };
     };
   };
