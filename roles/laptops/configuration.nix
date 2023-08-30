@@ -3,11 +3,15 @@
 # and in the NixOS manual (accessible by running `nixos-help`).
 {
   config,
+  lib,
   pkgs,
   modules,
   inputs,
   ...
-}: {
+}:
+with lib; let
+  beeper-desktop = pkgs.callPackage ../../pkgs/beeper-desktop.nix {};
+in {
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -126,6 +130,7 @@
     spotify-tui
     transmission-gtk
     gimp
+    beeper-desktop
 
     # I am DevOps
     ansible
