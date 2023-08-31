@@ -78,6 +78,9 @@ in {
       environmentFiles = [
         config.age.secrets.tonywinn-wordpress.path
       ];
+      volumes = [
+        "tonywinn-wordpress-database:/var/lib/mysql"
+      ];
     };
     tonywinn-wordpress = {
       image = "docker.io/library/wordpress:6-php7.4-fpm-alpine";

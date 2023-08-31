@@ -11,6 +11,9 @@
   # Set your time zone.
   time.timeZone = "Etc/UTC";
 
+  # Disable IPv6 Privacy Extensions
+  networking.tempAddresses = "disabled";
+
   # Define a user account. Don't forgeddt to set a password with ‘passwd’.
   users.users.sam = {
     isNormalUser = true;
