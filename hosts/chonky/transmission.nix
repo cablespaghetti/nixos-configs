@@ -9,8 +9,7 @@
     openFirewall = true;
     settings = {
       rpc-bind-address = "0.0.0.0";
-      rpc-whitelist = "127.0.0.1,192.168.42.*,100.*.*.*";
-      rpc-host-whitelist = "chonky";
+      rpc-host-whitelist-enabled = false;
       watch-dir-enabled = true;
       watch-dir = "/data/video/torrents/watch";
       trash-original-torrent-files = true;
