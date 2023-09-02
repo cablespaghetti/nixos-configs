@@ -37,7 +37,6 @@
   };
   networking.nftables.enable = true;
   services.resolved.enable = true;
-  networking.useNetworkd = true;
   networking.firewall = {
     enable = true;
     trustedInterfaces = ["tailscale0"];

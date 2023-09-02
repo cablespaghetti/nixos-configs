@@ -13,6 +13,7 @@
 
   # Disable IPv6 Privacy Extensions
   networking.tempAddresses = "disabled";
+  networking.useNetworkd = true;
 
   # Define a user account. Don't forgeddt to set a password with ‘passwd’.
   users.users.sam = {
