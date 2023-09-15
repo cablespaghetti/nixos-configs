@@ -10,6 +10,7 @@
     settings = {
       rpc-bind-address = "0.0.0.0";
       rpc-host-whitelist-enabled = false;
+      rpc-whitelist-enabled = false;
       watch-dir-enabled = true;
       watch-dir = "/data/video/torrents/watch";
       trash-original-torrent-files = true;
