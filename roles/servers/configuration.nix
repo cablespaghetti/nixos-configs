@@ -82,56 +82,56 @@
               }
             ];
           };
-          logs = {
-            configs = [
-              {
-                clients = [
-                  {
-                    basic_auth = {
-                      password_file = config.age.secrets.grafana-logs-password.path;
-                      username = "695583";
+        };
+        logs = {
+          configs = [
+            {
+              clients = [
+                {
+                  basic_auth = {
+                    password_file = config.age.secrets.grafana-logs-password.path;
+                    username = "695583";
+                  };
+                  url = "https://logs-prod-008.grafana.net/api/prom/push";
+                }
+              ];
+              name = "default";
+              positions = {
+                filename = "\${STATE_DIRECTORY}/loki_positions.yaml";
+              };
+              scrape_configs = [
+                {
+                  job_name = "journal";
+                  journal = {
+                    labels = {
+                      job = "systemd-journal";
                     };
-                    url = "https://logs-prod-008.grafana.net/api/prom/push";
-                  }
-                ];
-                name = "default";
-                positions = {
-                  filename = "\${STATE_DIRECTORY}/loki_positions.yaml";
-                };
-                scrape_configs = [
-                  {
-                    job_name = "journal";
-                    journal = {
-                      labels = {
-                        job = "systemd-journal";
-                      };
-                      max_age = "12h";
-                    };
-                    relabel_configs = [
-                      {
-                        source_labels = [
-                          "__journal__systemd_unit"
-                        ];
-                        target_label = "systemd_unit";
-                      }
-                      {
-                        source_labels = [
-                          "__journal__hostname"
-                        ];
-                        target_label = "nodename";
-                      }
-                      {
-                        source_labels = [
-                          "__journal_syslog_identifier"
-                        ];
-                        target_label = "syslog_identifier";
-                      }
-                    ];
-                  }
-                ];
-              }
-            ];
-          };
+                    max_age = "12h";
+                  };
+                  relabel_configs = [
+                    {
+                      source_labels = [
+                        "__journal__systemd_unit"
+                      ];
+                      target_label = "systemd_unit";
+                    }
+                    {
+                      source_labels = [
+                        "__journal__hostname"
+                      ];
+                      target_label = "nodename";
+                    }
+                    {
+                      source_labels = [
+                        "__journal_syslog_identifier"
+                      ];
+                      target_label = "syslog_identifier";
+                    }
+                  ];
+                }
+              ];
+            }
+          ];
         };
 
         integrations = {
