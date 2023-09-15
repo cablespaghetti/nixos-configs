@@ -60,6 +60,7 @@
     # Set up Grafana Agent
     age.secrets.grafana-password = {
       file = ../../secrets/grafana-password.age;
+      owner = "grafana-agent";
     };
     services.grafana-agent = {
       enable = true;
