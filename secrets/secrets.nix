@@ -9,5 +9,6 @@ let
 in {
   "caddy-cloudflare.age".publicKeys = users ++ systems;
   "grafana-password.age".publicKeys = users ++ systems;
+  "grafana-logs-password.age".publicKeys = users ++ systems;
   "tonywinn-wordpress.age".publicKeys = users ++ [nixos-web-1];
 }
