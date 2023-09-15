@@ -11,11 +11,11 @@
   config = {
     # Set your time zone.
     time.timeZone = "Etc/UTC";
-  
+
     # Disable IPv6 Privacy Extensions
     networking.tempAddresses = "disabled";
     networking.useNetworkd = true;
-  
+
     # Define a user account. Don't forgeddt to set a password with ‘passwd’.
     users.users.sam = {
       isNormalUser = true;
@@ -25,7 +25,7 @@
         "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDLfRpMNL58CLVQxGpwz+LVMKa6vSSxOBO4Z9tlKYfZPLN2JwMzeYa3OaHP0Oug+/EBkAnq7I/lUDYiYCpBlzux81J3ieG4EcI07QSLVIFPnrCrezEyoxphTu6nd3GIL8n1UIGNPgcFI/JureEDjE0wrmocAHmfAOa8wKvWCvepQEHg34uvTDn9NkRXlMGBibyw2b056xJNjhgPgiy6d3NvGe5ArTJnZMhAA102PzPyM0uDQ/OITLhR8lJeYdDUShAL39H1bQvteRSCmCLeRhb63j0vwukjREAOR46xM6DrxMxAr695sxLtX1WVBnIjsXisRH76tzKj+Z0RXEuk7j9pYKwbKdivQkLJ/8tNoVOvHXe3wFQMqCmoO5Lap8yCokpAEsB/qwKM7N4ygi0gJEtQ52pHG3wrN5iFn7BXr++yET5SvNoEMYKnNqOiI6swZB5miVLR4+YJnQWlW0PbkEwrn5RZ9FBOr3ue9pJLSG8UYnqRpj5Qxj0QFcQMg2C9caM= sam@nixos-yoga"
       ];
     };
-  
+
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
@@ -48,7 +48,7 @@
         };
       };
     };
-  
+
     # Enable the OpenSSH daemon.
     services.openssh = {
       enable = true;
@@ -56,9 +56,9 @@
       settings.KbdInteractiveAuthentication = false;
       settings.PermitRootLogin = "no";
     };
-  
+
     # Set up Grafana Agent
-    age.secrets.grafana-password.age = {
+    age.secrets.grafana-password = {
       file = ../../secrets/grafana-password.age;
     };
     services.grafana-agent = {
@@ -78,7 +78,7 @@
             ];
           };
         };
-  
+
         integrations = {
           agent.enabled = true;
           agent.scrape_integration = true;
