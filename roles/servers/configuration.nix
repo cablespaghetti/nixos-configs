@@ -57,13 +57,27 @@
   };
 
   # Set up Grafana Agent
+  config.age.secrets.grafana-password.age = {
+    file = ../../secrets/grafana-password.age;
+  };
   services.grafana-agent = {
     enable = true;
     settings = {
       metrics = {
-        wal_directory = "\${STATE_DIRECTORY}";
-        global.scrape_interval = "5s";
+        global = {
+          scrape_interval = "10s";
+          remote_write = [
+            {
+              basic_auth = {
+                password_file = config.age.secrets.grafana-password.path;
+                username = "1193016";
+              };
+              url = "https://prometheus-prod-05-gb-south-0.grafana.net/api/prom/push";
+            }
+          ];
+        };
       };
+
       integrations = {
         agent.enabled = true;
         agent.scrape_integration = true;
