@@ -55,4 +55,20 @@
     settings.KbdInteractiveAuthentication = false;
     settings.PermitRootLogin = "no";
   };
+
+  # Set up Grafana Agent
+  services.grafana-agent = {
+    enable = true;
+    settings = {
+      metrics = {
+        wal_directory = "\${STATE_DIRECTORY}";
+        global.scrape_interval = "5s";
+      };
+      integrations = {
+        agent.enabled = true;
+        agent.scrape_integration = true;
+        node_exporter.enabled = true;
+      };
+    };
+  };
 }
