@@ -145,11 +145,11 @@
     # Set up Restic Backups
     age.secrets.restic-environmentfile = {
       file = ../../secrets/restic-environmentfile.age;
-      owner = services.restic-user;
+      owner = config.services.restic.backups.b2.user;
     };
     age.secrets.restic-password = {
-      file = ../../secrets/backblaze-restic-password.age;
-      owner = services.restic.user;
+      file = ../../secrets/restic-password.age;
+      owner = config.services.restic.backups.b2.user;
     };
     services.restic.backups = {
       b2 = {
