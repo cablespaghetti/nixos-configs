@@ -44,4 +44,7 @@
   config.services.tailscale = {
     permitCertUid = "caddy";
   };
+  config.services.restic.backups.b2.paths = [
+    "/data/joplin"
+  ];
 }
