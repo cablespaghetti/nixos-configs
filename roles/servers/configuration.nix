@@ -153,7 +153,7 @@
     };
     services.restic.backups = {
       b2 = {
-        repository = "b2:cablespaghetti-homelab-backups";
+        repository = "b2:cablespaghetti-homelab-backups:/" + config.networking.hostName;
         initialize = true;
         passwordFile = config.age.secrets.restic-password.path;
         environmentFile = config.age.secrets.restic-environmentfile.path;
