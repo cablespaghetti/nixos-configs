@@ -141,5 +141,31 @@
         };
       };
     };
+
+    # Set up Restic Backups
+    age.secrets.restic-environmentfile = {
+      file = ../../secrets/restic-environmentfile.age;
+      owner = services.restic-user;
+    };
+    age.secrets.restic-password = {
+      file = ../../secrets/backblaze-restic-password.age;
+      owner = services.restic.user;
+    };
+    services.restic.backups = {
+      b2 = {
+        repository = "b2:cablespaghetti-homelab-backups";
+        initialize = true;
+        passwordFile = config.age.secrets.restic-password.path;
+        environmentFile = config.age.secrets.restic-environmentfile.path;
+        timerConfig = {
+          onCalendar = "daily";
+        };
+        pruneOpts = [
+          "--keep-daily 7"
+          "--keep-weekly 5"
+          "--keep-yearly 10"
+        ];
+      };
+    };
   };
 }
