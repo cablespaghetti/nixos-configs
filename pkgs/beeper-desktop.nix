@@ -5,11 +5,11 @@
 }:
 appimageTools.wrapType2 rec {
   name = "beeper";
-  version = "3.71.18";
+  version = "3.75.16";
 
   src = fetchurl {
     url = "https://download.beeper.com/linux/appImage/x64";
-    sha256 = "sha256-X724MKuXr/iJ/lb6GkuUA/xfWsNWoDqWYgY56H4wNYs=";
+    sha256 = "sha256-qfzSkjvJuyoD3o0wuQxssemvsi6DW3pzoStmWkv0dSU=";
   };
 
   extraInstallCommands = let
