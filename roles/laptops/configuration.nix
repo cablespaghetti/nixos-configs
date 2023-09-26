@@ -8,10 +8,7 @@
   modules,
   inputs,
   ...
-}:
-with lib; let
-  beeper-desktop = pkgs.callPackage ../../pkgs/beeper-desktop.nix {};
-in {
+}: {
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -131,7 +128,7 @@ in {
     spotify-tui
     transmission-gtk
     gimp
-    beeper-desktop
+    beeper
 
     # I am DevOps
     ansible
@@ -155,6 +152,5 @@ in {
         kamadorueda.alejandra
       ];
     })
-    #beeper-desktop
   ];
 }
