@@ -60,14 +60,16 @@
     # Set up Grafana Agent
     age.secrets.grafana-password = {
       file = ../../secrets/grafana-password.age;
-      mode = "644";
     };
     age.secrets.grafana-logs-password = {
       file = ../../secrets/grafana-logs-password.age;
-      mode = "644";
     };
     services.grafana-agent = {
       enable = true;
+      credentials = {
+        logs_remote_write_password = config.age.secrets.grafana-logs-password.path;
+        metrics_remote_write_password = config.age.secrets.grafana-password.path;
+      };
       settings = {
         metrics = {
           global = {
@@ -75,7 +77,6 @@
             remote_write = [
               {
                 basic_auth = {
-                  password_file = config.age.secrets.grafana-password.path;
                   username = "1193016";
                 };
                 url = "https://prometheus-prod-05-gb-south-0.grafana.net/api/prom/push";
@@ -89,7 +90,6 @@
               clients = [
                 {
                   basic_auth = {
-                    password_file = config.age.secrets.grafana-logs-password.path;
                     username = "695583";
                   };
                   url = "https://logs-prod-008.grafana.net/api/prom/push";
