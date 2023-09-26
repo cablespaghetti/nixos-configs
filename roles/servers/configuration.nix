@@ -60,11 +60,11 @@
     # Set up Grafana Agent
     age.secrets.grafana-password = {
       file = ../../secrets/grafana-password.age;
-      owner = "grafana-agent";
+      mode = "644";
     };
     age.secrets.grafana-logs-password = {
       file = ../../secrets/grafana-logs-password.age;
-      owner = "grafana-agent";
+      mode = "644";
     };
     services.grafana-agent = {
       enable = true;
