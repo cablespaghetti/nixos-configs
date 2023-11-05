@@ -26,6 +26,8 @@
     tmux
     bmon
     alejandra
+    pciutils
+    lshw
     inputs.agenix.packages."${system}".default
   ];
 
