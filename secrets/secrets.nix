@@ -12,5 +12,7 @@ in {
   "grafana-logs-password.age".publicKeys = users ++ systems;
   "restic-environmentfile.age".publicKeys = users ++ systems;
   "restic-password.age".publicKeys = users ++ systems;
+  "smtp-username.age".publicKeys = users ++ systems;
+  "smtp-password.age".publicKeys = users ++ systems;
   "tonywinn-wordpress.age".publicKeys = users ++ [nixos-web-1];
 }
