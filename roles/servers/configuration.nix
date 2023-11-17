@@ -179,7 +179,7 @@
     };
     environment.etc = {
       "aliases" = {
-        text = "root: " config.networking.hostName + "@cablespaghetti.dev";
+        text = "root: " + config.networking.hostName + "@cablespaghetti.dev";
         mode = "0644";
       };
     };
@@ -192,13 +192,13 @@
         tls_trust_file = "/etc/ssl/certs/ca-certificates.crt";
         tls = "on";
         auth = "login";
-        tls_starttls = "off";
+        tls_starttls = "on";
       };
       accounts = {
         default = {
           host = "smtp-relay.brevo.com";
           passwordeval = "cat " + config.age.secrets.smtp-password.path;
-          user = builtins.readFile config.age.secrets.smtp-username.path;
+          eval = "echo user $(cat " + config.age.secrets.smtp-username.path + ")";
           from = config.networking.hostName + "@cablespaghetti.dev";
         };
       };
