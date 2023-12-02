@@ -22,7 +22,7 @@
   # Set up zed for ZFS notification emails
   services.zfs.zed.settings = {
     ZED_DEBUG_LOG = "/tmp/zed.debug.log";
-    ZED_EMAIL_ADDR = [ "root" ];
+    ZED_EMAIL_ADDR = ["root"];
     ZED_EMAIL_PROG = "${pkgs.msmtp}/bin/msmtp";
     ZED_EMAIL_OPTS = "@ADDRESS@";
 
@@ -34,4 +34,24 @@
   };
   # this option does not work; will return error
   services.zfs.zed.enableMail = false;
+  services.prometheus.exporters.smartctl.enable = true;
+  services.grafana-agent = {
+    settings = {
+      metrics = {
+        configs = [
+          {
+            name = "smartctl";
+            scrape_configs = [
+              {
+                job_name = "smartctl";
+                static_configs = [
+                  {targets = ["localhost:9633"];}
+                ];
+              }
+            ];
+          }
+        ];
+      };
+    };
+  };
 }

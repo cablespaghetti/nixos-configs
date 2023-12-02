@@ -28,6 +28,7 @@
     alejandra
     pciutils
     lshw
+    smartmontools
     inputs.agenix.packages."${system}".default
   ];
 
