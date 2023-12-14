@@ -18,7 +18,7 @@
   boot.supportedFilesystems = ["zfs"];
   boot.zfs.devNodes = "/dev/disk/by-id/";
   boot.zfs.forceImportRoot = false;
-  boot.zfs.extraPools = ["data"];
+  boot.zfs.extraPools = ["bigdata"];
   boot.loader.efi.canTouchEfiVariables = false;
   boot.loader.efi.efiSysMountPoint = "/boot/efis/ata-TS64GSSD370_D260800539-part1";
   boot.loader.generationsDir.copyKernels = true;
