@@ -15,9 +15,9 @@
   };
   networking.firewall = {
     allowedUDPPorts = [config.services.tailscale.port 631];
-    allowedTCPPorts = [22 631 80 443];
+    allowedTCPPorts = [22 631 80 443 8080];
   };
-  environment.systemPackages = with pkgs; [get_iplayer sanoid];
+  environment.systemPackages = with pkgs; [get_iplayer sanoid hdparm];
 
   # Set up zed for ZFS notification emails
   services.zfs.zed.settings = {
