@@ -30,6 +30,9 @@
     enable = true;
     package = pkgs.cloudflare-caddy;
     email = "sam@weston.world";
+    logFormat = ''
+      level INFO
+    '';
     virtualHosts."joplin.weston.world".extraConfig = ''
       tls {
         dns cloudflare {env.CLOUDFLARE_TOKEN}
@@ -39,6 +42,9 @@
     '';
     virtualHosts."chonky.buffalo-squeaker.ts.net".extraConfig = ''
       reverse_proxy http://127.0.0.1:8096
+      tls {
+        get_certificate tailscale
+      }
     '';
   };
   config.services.tailscale = {
