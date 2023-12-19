@@ -4,6 +4,7 @@
   config,
   ...
 }: {
+  environment.systemPackages = with pkgs; [recyclarr];
   services.sabnzbd = {
     enable = true;
   };
