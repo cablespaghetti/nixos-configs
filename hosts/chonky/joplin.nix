@@ -33,6 +33,10 @@
     logFormat = ''
       level INFO
     '';
+    virtualHosts."http://chonky".extraConfig = ''
+      root * /srv/tftp
+      file_server browse
+    '';
     virtualHosts."joplin.weston.world".extraConfig = ''
       tls {
         dns cloudflare {env.CLOUDFLARE_TOKEN}
