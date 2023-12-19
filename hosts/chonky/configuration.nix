@@ -14,7 +14,7 @@
     interval = "monthly";
   };
   networking.firewall = {
-    allowedUDPPorts = [config.services.tailscale.port 631];
+    allowedUDPPorts = [config.services.tailscale.port 631 config.services.atftpd.port];
     allowedTCPPorts = [22 631 80 443 8080];
   };
   environment.systemPackages = with pkgs; [get_iplayer sanoid hdparm];
@@ -54,4 +54,5 @@
       };
     };
   };
+  services.atftpd.enable = true;
 }
