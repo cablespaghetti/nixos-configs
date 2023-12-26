@@ -7,6 +7,8 @@
   services.transmission = {
     enable = true;
     openFirewall = true;
+    user = config.services.jellyfin.user;
+    group = config.services.jellyfin.group;
     settings = {
       rpc-bind-address = "0.0.0.0";
       rpc-host-whitelist-enabled = false;
