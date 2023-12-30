@@ -5,7 +5,7 @@
 }: {
   config.virtualisation.oci-containers.containers = {
     joplin = {
-      image = "docker.io/joplin/server:2.12.1-beta";
+      image = "docker.io/joplin/server:2.14-beta";
       ports = ["127.0.0.1:22300:22300"];
       volumes = [
         "/data/joplin:/data"
