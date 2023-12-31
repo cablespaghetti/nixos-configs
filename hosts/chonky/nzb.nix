@@ -7,6 +7,7 @@
   environment.systemPackages = with pkgs; [recyclarr];
   services.sabnzbd = {
     enable = true;
+    package = pkgs.samfork.sabnzbd;
     #user = config.services.jellyfin.user;
     #group = config.services.jellyfin.group;
   };

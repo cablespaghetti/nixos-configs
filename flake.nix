@@ -4,6 +4,8 @@
     # You can access packages and modules from different nixpkgs revs at the
     # same time. See 'unstable-packages' overlay in 'overlays/default.nix'.
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-samfork.url = "github:cablespaghetti/nixpkgs/master";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,6 +35,7 @@
           overlays = [
             cloudflare-caddy.overlay
             overlays.unstable-packages
+            overlays.samfork-packages
           ];
           config = {allowUnfree = true;};
         };

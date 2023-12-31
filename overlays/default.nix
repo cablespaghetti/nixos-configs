@@ -20,4 +20,13 @@
       config.allowUnfree = true;
     };
   };
+
+  # When applied, the unstable nixpkgs set (declared in the flake inputs) will
+  # be accessible through 'pkgs.unstable'
+  samfork-packages = final: _prev: {
+    unstable = import inputs.nixpkgs-samfork {
+      inherit (final) system;
+      config.allowUnfree = true;
+    };
+  };
 }
