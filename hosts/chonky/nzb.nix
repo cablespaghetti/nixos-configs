@@ -8,8 +8,8 @@
   services.sabnzbd = {
     enable = true;
     package = pkgs.samfork.sabnzbd;
-    #user = config.services.jellyfin.user;
-    #group = config.services.jellyfin.group;
+    user = config.services.jellyfin.user;
+    group = config.services.jellyfin.group;
   };
   services.sonarr = {
     enable = true;
