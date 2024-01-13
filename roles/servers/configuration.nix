@@ -160,7 +160,9 @@
         passwordFile = config.age.secrets.restic-password.path;
         environmentFile = config.age.secrets.restic-environmentfile.path;
         timerConfig = {
-          onCalendar = "daily";
+          OnCalendar = "02:05";
+          RandomizedDelaySec = "2h";
+          Persistent = true;
         };
         pruneOpts = [
           "--keep-daily 7"
