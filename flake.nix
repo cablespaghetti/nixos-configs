@@ -60,7 +60,23 @@
           inputs = inputs;
         };
       };
-
+      nixos-web-vps = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/nixos-web-vps/hardware-configuration.nix
+          ./common/configuration.nix
+          ./hosts/nixos-web-vps/configuration.nix
+          ./hosts/nixos-web-vps/wordpress.nix
+          ./common/upgrade-diff.nix
+          ./roles/servers/configuration.nix
+          home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
+        ];
+        specialArgs = {
+          pkgs = pkgs.x86_64-linux;
+          inputs = inputs;
+        };
+      };
       chonky = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
