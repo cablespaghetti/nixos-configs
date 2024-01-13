@@ -83,7 +83,7 @@ in {
       ];
     };
     tonywinn-wordpress = {
-      image = "docker.io/library/wordpress:6-php7.4-fpm-alpine";
+      image = "docker.io/library/wordpress:6-php8.2-fpm-alpine";
       dependsOn = ["tonywinn-db"];
       ports = ["9000"];
       volumes = [
@@ -91,7 +91,7 @@ in {
       ];
     };
     tonywinn-nginx = {
-      image = "docker.io/library/nginx:1.22-alpine";
+      image = "docker.io/library/nginx:1.24-alpine";
       dependsOn = ["tonywinn-wordpress"];
       ports = ["127.0.0.1:8080:80"];
       volumes = [
