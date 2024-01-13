@@ -9,8 +9,8 @@
 }: {
   networking.hostName = "nixos-web-vps";
   networking.firewall = {
-    allowedUDPPorts = [config.services.tailscale.port 631];
-    allowedTCPPorts = [22 80 443 631];
+    allowedUDPPorts = [config.services.tailscale.port];
+    allowedTCPPorts = [22 443];
   };
   documentation.enable = false;
   environment.noXlibs = true;
