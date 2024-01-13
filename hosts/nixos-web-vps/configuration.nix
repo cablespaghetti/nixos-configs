@@ -14,5 +14,4 @@
   };
   documentation.enable = false;
   environment.noXlibs = true;
-  i18n.supportedLocales = lib.mkForce [ "en_US.UTF-8/UTF-8" ];
 }

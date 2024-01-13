@@ -15,5 +15,5 @@ in {
   "restic-password.age".publicKeys = users ++ systems;
   "smtp-username.age".publicKeys = users ++ systems;
   "smtp-password.age".publicKeys = users ++ systems;
-  "tonywinn-wordpress.age".publicKeys = users ++ [nixos-web-1];
+  "tonywinn-wordpress.age".publicKeys = users ++ [nixos-web-1 nixos-web-vps];
 }
