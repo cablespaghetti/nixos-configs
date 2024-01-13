@@ -12,6 +12,7 @@
     allowedUDPPorts = [config.services.tailscale.port];
     allowedTCPPorts = [443];
   };
+  services.openssh.openFirewall = false;
   documentation.enable = false;
   environment.noXlibs = true;
 }
