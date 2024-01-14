@@ -88,6 +88,7 @@
           ./hosts/chonky/nzb.nix
           ./hosts/chonky/printer.nix
           ./hosts/chonky/joplin.nix
+          ./hosts/chonky/samba.nix
           ./common/upgrade-diff.nix
           ./roles/servers/configuration.nix
           home-manager.nixosModules.home-manager
