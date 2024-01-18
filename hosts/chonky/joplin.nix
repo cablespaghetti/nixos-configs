@@ -33,7 +33,7 @@
     logFormat = ''
       level INFO
     '';
-    virtualHosts."http://chonky".extraConfig = ''
+    virtualHosts."http://192.168.42.222".extraConfig = ''
       root * /srv/tftp
       file_server browse
     '';
