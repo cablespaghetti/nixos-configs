@@ -139,22 +139,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-samfork": {
-      "locked": {
-        "lastModified": 1705611955,
-        "narHash": "sha256-rufDeP+kSEmwFZWnjvLswqQzNcHkKP0UyrWMtC3KTv8=",
-        "owner": "cablespaghetti",
-        "repo": "nixpkgs",
-        "rev": "652f2d5ef75c994e0555279bdd49018fe4132a79",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cablespaghetti",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1705566941,
@@ -173,11 +157,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1705262367,
-        "narHash": "sha256-rdqGiTUpuk82pYjw3VZD77obM2ms5uFRrRNQNLsN//g=",
+        "lastModified": 1705612178,
+        "narHash": "sha256-NtOsrGdQcpx384u+aAGv5z+/P3UNm7gQovEF+U0PFQk=",
         "owner": "cablespaghetti",
         "repo": "nixpkgs",
-        "rev": "5e1558fdf6f629ca5fb5be4172f1a2dcb227ff82",
+        "rev": "a76af337039b6c25f65c47351fe99b1b1f7fae67",
         "type": "github"
       },
       "original": {
@@ -194,7 +178,6 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-samfork": "nixpkgs-samfork",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
