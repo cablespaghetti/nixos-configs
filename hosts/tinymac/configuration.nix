@@ -7,6 +7,6 @@
   modules,
   ...
 }: {
-  networking.hostName = "nixos-yoga";
+  networking.hostName = "tinymac";
   networking.hostId = "007f0200";
 }

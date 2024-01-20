@@ -98,11 +98,11 @@
         };
       };
 
-      nixos-yoga = nixpkgs.lib.nixosSystem {
+      tinymac = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/nixos-yoga/hardware-configuration.nix
-          ./hosts/nixos-yoga/configuration.nix
+          ./hosts/tinymac/hardware-configuration.nix
+          ./hosts/tinymac/configuration.nix
           ./common/configuration.nix
           ./common/upgrade-diff.nix
           ./roles/laptops/configuration.nix
