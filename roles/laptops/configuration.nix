@@ -37,14 +37,10 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "gb";
-    xkbVariant = "";
-  };
+  services.xserver.xkb.layout = "gb";
 
   # Configure console keymap
-  console.keyMap = "uk";
+  console.useXkbConfig = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -73,30 +69,30 @@
   hardware.opengl.enable = true;
 
   # Styling
-  fonts = {
-    fonts = with pkgs; [
-      noto-fonts
-      noto-fonts-emoji
-    ];
-
-    fontconfig = {
-      # Fixes pixelation
-      antialias = true;
-
-      # Fixes antialiasing blur
-      hinting = {
-        enable = true;
-        style = "hintfull"; # no difference
-        autohint = true; # no difference
-      };
-
-      subpixel = {
-        # Makes it bolder
-        rgba = "rgb";
-        lcdfilter = "default"; # no difference
-      };
-    };
-  };
+  #  fonts = {
+  #    fonts = with pkgs; [
+  #      noto-fonts
+  #      noto-fonts-emoji
+  #    ];
+  #
+  #    fontconfig = {
+  #      # Fixes pixelation
+  #      antialias = true;
+  #
+  #      # Fixes antialiasing blur
+  #      hinting = {
+  #        enable = true;
+  #        style = "hintfull"; # no difference
+  #        autohint = true; # no difference
+  #      };
+  #
+  #      subpixel = {
+  #        # Makes it bolder
+  #        rgba = "rgb";
+  #        lcdfilter = "default"; # no difference
+  #      };
+  #    };
+  #  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sam = {
@@ -115,23 +111,18 @@
 
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    blackbox-terminal
     imagemagick
 
     # Can't live without these either
-    bitwarden
-    brave
+    floorp
     gnomeExtensions.vitals
+    gnomeExtensions.dash-to-dock
     joplin
     joplin-desktop
-    signal-desktop
-    spotify-tui
-    transmission-gtk
     gimp
     beeper
 
     # I am DevOps
-    ansible
     awscli2
     terraform
     fluxcd

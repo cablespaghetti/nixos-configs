@@ -15,29 +15,36 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   # Run latest upstream kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  #boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-  #boot.supportedFilesystems = ["zfs"];
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci"];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = [];
-  boot.extraModulePackages = [];
-
+  boot.kernelModules = ["kvm-intel" "wl"];
+  boot.kernelParams = ["acpi_osi="];
+  boot.extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
+  hardware.cpu.intel.updateMicrocode = true;
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiIntel
+    vaapiVdpau
+    libvdpau-va-gl
+    intel-media-driver
+  ];
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/4a1d95c3-db1c-4c07-9d2b-16ac110c50a8";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/8bc1ec94-f630-42d5-b3a7-545f457c2fe0";
+    fsType = "f2fs";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/5392-FEC4";
+    device = "/dev/disk/by-uuid/0280-BF5D";
     fsType = "vfat";
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/22ef190a-50fc-4162-98cf-8b503754a0fd";}
+    {
+      device = "/.swapfile";
+      size = 4096;
+    }
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -48,8 +55,11 @@
   #networking.interfaces.wlp2s0.useDHCP = true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
-
-  hardware.sensor.iio.enable = true;
-  services.fwupd.enable = true;
+  services.acpid.enable = true;
+  powerManagement.enable = true;
+  powerManagement.cpuFreqGovernor = "ondemand";
+  hardware.facetimehd.enable = true;
+  services.mbpfan.enable = true;
+  services.fstrim.enable = true;
+  services.xserver.xkb.variant = "mac";
 }
