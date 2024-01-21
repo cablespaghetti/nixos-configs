@@ -10,7 +10,7 @@
   networking.hostName = "nixos-web-bakery";
   networking.firewall = {
     allowedUDPPorts = [config.services.tailscale.port];
-    allowedTCPPorts = [443 22];
+    allowedTCPPorts = [80 443];
   };
   services.openssh.openFirewall = false;
   documentation.enable = false;

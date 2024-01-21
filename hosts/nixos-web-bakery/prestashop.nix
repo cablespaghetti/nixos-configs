@@ -31,10 +31,10 @@
       dependsOn = ["hayleysbakery-database"];
       ports = ["8080:80"];
       environment = {
-      DB_SERVER = "hayleysbakery-database";
-      DB_NAME = "hayleysbakery";
-      DB_USER = "hayleysbakery";
-      PS_DOMAIN = "hayleysbakery.com";
+        DB_SERVER = "hayleysbakery-database";
+        DB_NAME = "hayleysbakery";
+        DB_USER = "hayleysbakery";
+        PS_DOMAIN = "hayleysbakery.com";
       };
       environmentFiles = [
         config.age.secrets.hayleysbakery-database.path
@@ -47,12 +47,12 @@
   # Greatly inspired by https://github.com/burmudar/dotfiles/blob/0d2ee4a9d2af95b3fe76c88cd34c16077ea044bb/nix/hosts/media/configuration.nix#L145
   # Needed because we're using a custom caddy package
   config.systemd.services.caddy.serviceConfig.AmbientCapabilities = "CAP_NET_BIND_SERVICE";
-#  config.age.secrets.caddy-cloudflare = {
-#    file = ../../secrets/caddy-cloudflare.age;
-#    owner = config.services.caddy.user;
-#    group = config.services.caddy.group;
-#  };
-#  config.systemd.services.caddy.serviceConfig.EnvironmentFile = config.age.secrets.caddy-cloudflare.path;
+  #  config.age.secrets.caddy-cloudflare = {
+  #    file = ../../secrets/caddy-cloudflare.age;
+  #    owner = config.services.caddy.user;
+  #    group = config.services.caddy.group;
+  #  };
+  #  config.systemd.services.caddy.serviceConfig.EnvironmentFile = config.age.secrets.caddy-cloudflare.path;
   config.services.caddy = {
     enable = true;
     package = pkgs.cloudflare-caddy;
