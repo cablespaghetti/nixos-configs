@@ -117,13 +117,13 @@
     floorp
     gnomeExtensions.vitals
     gnomeExtensions.dash-to-dock
+    gnomeExtensions.caffeine
     joplin
     joplin-desktop
     gimp
     beeper
     tilix
     rclone
-    celeste
 
     # I am DevOps
     awscli2
