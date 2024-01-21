@@ -75,6 +75,23 @@
           inputs = inputs;
         };
       };
+      nixos-web-bakery = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/nixos-web-bakery/hardware-configuration.nix
+          ./common/configuration.nix
+          ./hosts/nixos-web-bakery/configuration.nix
+          ./hosts/nixos-web-bakery/prestashop.nix
+          ./common/upgrade-diff.nix
+          ./roles/servers/configuration.nix
+          home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
+        ];
+        specialArgs = {
+          pkgs = pkgs.x86_64-linux;
+          inputs = inputs;
+        };
+      };
       chonky = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
