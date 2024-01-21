@@ -58,11 +58,9 @@
     package = pkgs.cloudflare-caddy;
     email = "sam@weston.world";
     virtualHosts."www.hayleysbakery.com".extraConfig = ''
-      tls self_signed
       redir https://hayleysbakery.com
     '';
     virtualHosts."hayleysbakery.com".extraConfig = ''
-      tls self_signed
       reverse_proxy http://127.0.0.1:8080
     '';
   };
