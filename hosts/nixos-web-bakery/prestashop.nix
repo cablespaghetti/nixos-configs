@@ -39,7 +39,6 @@
       environmentFiles = [
         config.age.secrets.hayleysbakery-database.path
       ];
-
       volumes = [
         "hayleysbakery-prestashop:/var/www/html"
       ];
