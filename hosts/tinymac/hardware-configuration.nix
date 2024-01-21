@@ -16,12 +16,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   # Run latest upstream kernel
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
 
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel" "wl"];
-  boot.kernelParams = ["acpi_osi="];
+  boot.kernelParams = ["hid_apple.iso_layout=1" "acpi_osi="];
   boot.extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
   hardware.cpu.intel.updateMicrocode = true;
   hardware.opengl.extraPackages = with pkgs; [

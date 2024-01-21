@@ -121,6 +121,9 @@
     joplin-desktop
     gimp
     beeper
+    tilix
+    rclone
+    celeste
 
     # I am DevOps
     awscli2
