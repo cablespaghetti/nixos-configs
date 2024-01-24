@@ -29,7 +29,10 @@
     nameservers = [
       "8.8.8.8"
     ];
-    defaultGateway = "45.133.117.1";
+    defaultGateway = {
+      address = "45.133.117.1";
+      interface = "enp3s0";
+    };
     defaultGateway6 = {
       address = "2a12:9080:1::1";
       interface = "enp3s0";
