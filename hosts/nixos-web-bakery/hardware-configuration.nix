@@ -9,6 +9,7 @@
   ...
 }: {
   imports = [(modulesPath + "/profiles/qemu-guest.nix")];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.device = "/dev/vda";
   boot.initrd.availableKernelModules = ["ata_piix" "uhci_hcd" "xen_blkfront" "vmw_pvscsi"];
   boot.initrd.kernelModules = ["nvme"];
@@ -27,7 +28,8 @@
 
   networking = {
     nameservers = [
-      "8.8.8.8"
+      "1.1.1.1"
+      "1.0.0.1"
     ];
     defaultGateway = {
       address = "45.133.117.1";
