@@ -25,12 +25,54 @@
     }
   ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = false;
-  networking.interfaces.ens3.useDHCP = true;
+  networking = {
+    nameservers = [
+      "8.8.8.8"
+    ];
+    defaultGateway = "45.133.117.1";
+    defaultGateway6 = {
+      address = "2a12:9080:1::1";
+      interface = "enp3s0";
+    };
+    dhcpcd.enable = false;
+    usePredictableInterfaceNames = lib.mkForce true;
+    interfaces = {
+      enp3s0 = {
+        ipv4.addresses = [
+          {
+            address = "45.133.117.157";
+            prefixLength = 24;
+          }
+        ];
+        ipv6.addresses = [
+          {
+            address = "2a12:9080:1:9c::a";
+            prefixLength = 64;
+          }
+          {
+            address = "fe80::2a5:d7ff:fe70:d619";
+            prefixLength = 64;
+          }
+        ];
+        ipv4.routes = [
+          {
+            address = "45.133.117.1";
+            prefixLength = 32;
+          }
+        ];
+        ipv6.routes = [
+          {
+            address = "2a12:9080:1::1";
+            prefixLength = 128;
+          }
+        ];
+      };
+    };
+  };
+  services.udev.extraRules = ''
+    ATTR{address}=="00:a5:d7:70:d6:19", NAME="enp3s0"
+
+  '';
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
