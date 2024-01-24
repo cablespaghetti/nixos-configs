@@ -141,11 +141,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1705697961,
-        "narHash": "sha256-XepT3WS516evSFYkme3GrcI3+7uwXHqtHbip+t24J7E=",
+        "lastModified": 1705975988,
+        "narHash": "sha256-HJS/ilLkwLaFe+kPciiVuEwa90p7d7Y2FUZXuq7ztVk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e5d1c87f5813afde2dda384ac807c57a105721cc",
+        "rev": "4d3d04cfd372a0511f12b885c9822e406b00fe8e",
         "type": "github"
       },
       "original": {
@@ -157,11 +157,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1705612178,
-        "narHash": "sha256-NtOsrGdQcpx384u+aAGv5z+/P3UNm7gQovEF+U0PFQk=",
+        "lastModified": 1706132965,
+        "narHash": "sha256-cIyN1DTrWw2OQ+5332SY4qRfk8gt6294SD1mBQ7CSWM=",
         "owner": "cablespaghetti",
         "repo": "nixpkgs",
-        "rev": "a76af337039b6c25f65c47351fe99b1b1f7fae67",
+        "rev": "a5f64a0be2ea3f39b8f7c17edf21166c338363fc",
         "type": "github"
       },
       "original": {
