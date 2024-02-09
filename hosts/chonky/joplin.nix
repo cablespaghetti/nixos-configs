@@ -14,6 +14,7 @@
         APP_BASE_URL = "https://joplin.weston.world";
         STORAGE_DRIVER = "Type=Filesystem; Path=/data";
         SQLITE_DATABASE = "/data/db.sqlite";
+        MAX_TIME_DRIFT = "0";
       };
     };
   };
@@ -33,14 +34,14 @@
     logFormat = ''
       level INFO
     '';
-    virtualHosts."http://192.168.42.222".extraConfig = ''
-      root * /srv/tftp
-      file_server browse
-    '';
+    #virtualHosts."http://192.168.42.222".extraConfig = ''
+    #  root * /srv/tftp
+    #  file_server browse
+    #'';
     virtualHosts."joplin.weston.world".extraConfig = ''
       tls {
         dns cloudflare {env.CLOUDFLARE_TOKEN}
-        resolvers 1.1.1.1
+        resolvers 2606:4700:4700::1111
       }
       reverse_proxy http://127.0.0.1:22300
     '';
