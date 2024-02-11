@@ -29,7 +29,6 @@
     pciutils
     lshw
     smartmontools
-    fastfetch
     inputs.agenix.packages."${system}".default
   ];
 

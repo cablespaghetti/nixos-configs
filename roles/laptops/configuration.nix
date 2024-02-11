@@ -124,18 +124,16 @@
     beeper
     tilix
     rclone
+    libreoffice
 
     # I am DevOps
     awscli2
-    terraform
-    fluxcd
-    kubectl
-    kubectx
-    k9s
-    kubernetes-helm
+    opentofu
     nmap
-    mysql80
-    postgresql
+    python3
+    python311Packages.pip
+    pipenv
+    hugo
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
         bbenoist.nix
