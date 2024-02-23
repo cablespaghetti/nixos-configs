@@ -41,9 +41,9 @@
 
   virtualisation.docker = {
     enable = true;
-    storageDriver = "zfs";
     autoPrune.enable = true;
   };
+  users.users.sam.extraGroups = ["docker"];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
