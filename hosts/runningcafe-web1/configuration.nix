@@ -42,7 +42,7 @@
   virtualisation.docker = {
     enable = true;
     storageDriver = "zfs";
-    autoPrune = true;
+    autoPrune.enable = true;
   };
 
   # This value determines the NixOS release from which the default
