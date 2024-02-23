@@ -7,7 +7,8 @@ let
   nixos-web-1 = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDOJJ9EjVIO3yooXuC0jGlAukOhJneR8M27NZ+AS+P/zOs13LHCSHbsCS+/ttlNjZSFzbBgwt61Ssk5RDyqUUOHzuxySglCni0Ww5nAnXB12/CL10KAhsfEGQCZ9dCb1t2b+gdtoiooxOZO3vCD45uzlxLXOdcPWM07wPSJlr0prq/ZIVPx04skUwkbmIDgXaloQOHTPZNo09gUbASN2g3UaFH/NJkq8FMcnk3VvwhmywZvmnvY+CZyc91Pcu742Ke84v/nTjAeKrEoGm7U7fmdL5Gul0nmTdsWnAPtSQA3HjWzKmclhoqFGZrXik7N1kTvbAVmq4peweKW0/y9YVgYduzbISQCj1W/HZ18eEOcWjNQGEbXto9lmKtUjTIJXZruduE8cVlO+uappLMivHBPeT4HVo+KpJFUa6pJjoy6b5WcLTzBsUbb30C5YNkGY4jCUci4p2l4DIJjxoqBlOdS9VC7Wjclmke8YAoHPrjtdtJ5XNcGsSabLHJ2Is2KJ2vbSy5QjqQi0bzH49t+3nbzWTRTXfgZCmBLpR3pvreaRe9CxxRyDc/O1hBl0q17xKnKgdOZc7KgIQbEw0YayHZtXLr+YxptGPpPkLSfV1ZPceZVuTsf0CEz+gIzQOPSHK8nCRu22QrgD2YrRBR8DDXqcxuxcMVnwQj94fJSxz84SQ== root@nixos";
   nixos-web-vps = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCZg4+a+3GXa1z36WSFJ5V36etFfMMYZDDtQknIdUa+ovMRHin4XPAKR28th+KHgoRkjfPQ2UxTUQrXcT79RF9zCUDTFeQPruM8X3Zf3MF+w2TD3mtlMBHqtCnFu0Ps3JAVX2CuLLyfINSolUmnnxVHpKGFKpQrpKlrasDGG/2fjqOAJP/S7tKksLN5sY/FZKeH1gEk3TU4CPy4a9fjvKIgPjrT5aIrL7yYJvW1ZcXxFNCsWN5A+1ysiyQdJ+wmDeI9N5Mj8Hqrr7XrVhj2soLzhcuRyQFwiwGva8ejOnzVxw4yFAHs6/d3y8fiQXMj+RpwHc77zOl0CHzeQOwjQ3/zAPI8BC+xp7L/bv1Tpc0CHFb0GOHuH/F+xXaNun4RcpFQhACGGooH9Lf2IBK4vU1inhnqHIv6/dbtDmAXI7um9JbAAbWKOfX57fnLTCNRsqRi/yQcvcWx7IrikZqGCWIGdNRi6qpPPgbOdY+fSUGtWV0App/bqcBXXOg6dOnyZts= root@server-jaapuy";
   nixos-web-bakery = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJKTUF+koDhXuJ94x32uQeS+G2ceqLIgIB0f5m0LOLPd root@hayleysbakery.com";
-  systems = [chonky nixos-web-1 nixos-web-vps nixos-web-bakery];
+  runningcafe-web1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHXTs2FQJlqJbT/39qihOyqfw6UTUzbzvuU9y26C9PM+ root@nixos";
+  systems = [chonky nixos-web-1 nixos-web-vps nixos-web-bakery runningcafe-web1];
 in {
   "caddy-cloudflare.age".publicKeys = users ++ systems;
   "grafana-password.age".publicKeys = users ++ systems;
