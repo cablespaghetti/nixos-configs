@@ -42,6 +42,14 @@
   virtualisation.docker = {
     enable = true;
     autoPrune.enable = true;
+    daemon = {
+      settings = {
+        ipv6 = true;
+        fixed-cidr-v6 = "fd00:1::/64";
+        experimental = true;
+        ip6tables = true;
+      };
+    };
   };
   users.users.sam.extraGroups = ["docker"];
 
