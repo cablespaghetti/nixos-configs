@@ -74,6 +74,28 @@
     };
   };
 
+  # Backups are good
+  services.sanoid = {
+    enable = true;
+    templates = {
+      hourly = {
+        autoprune = true;
+        autosnap = true;
+        daily = 30;
+        monthly = 6;
+        hourly = 24;
+      };
+    };
+    datasets = {
+      "rpool/postgres16" = {
+        use_template = "hourly";
+      };
+      "rpool/redis-storage" = {
+        use_template = "hourly";
+      };
+    };
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It's perfectly fine and recommended to leave
