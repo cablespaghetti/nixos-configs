@@ -48,10 +48,31 @@
         fixed-cidr-v6 = "fd00:1::/64";
         experimental = true;
         ip6tables = true;
+        metrics-addr = "127.0.0.1:9323";
       };
     };
   };
   users.users.sam.extraGroups = ["docker"];
+
+  services.grafana-agent = {
+    settings = {
+      metrics = {
+        configs = [
+          {
+            name = "docker";
+            scrape_configs = [
+              {
+                job_name = "docker";
+                static_configs = [
+                  {targets = ["localhost:9323"];}
+                ];
+              }
+            ];
+          }
+        ];
+      };
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
