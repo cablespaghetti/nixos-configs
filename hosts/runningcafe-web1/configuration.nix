@@ -62,7 +62,7 @@
             name = "docker";
             scrape_configs = [
               {
-                job_name = "docker";
+                job_name = "runningcafe-web1-docker";
                 static_configs = [
                   {targets = ["localhost:9323"];}
                 ];
