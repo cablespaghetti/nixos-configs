@@ -41,23 +41,6 @@
       .pkgs;
   in {
     nixosConfigurations = {
-      nixos-web-1 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/nixos-web-1/hardware-configuration.nix
-          ./common/configuration.nix
-          ./hosts/nixos-web-1/configuration.nix
-          ./hosts/nixos-web-1/wordpress.nix
-          ./common/upgrade-diff.nix
-          ./roles/servers/configuration.nix
-          home-manager.nixosModules.home-manager
-          agenix.nixosModules.default
-        ];
-        specialArgs = {
-          pkgs = pkgs.x86_64-linux;
-          inputs = inputs;
-        };
-      };
       nixos-web-vps = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -67,6 +50,7 @@
           ./hosts/nixos-web-vps/wordpress.nix
           ./common/upgrade-diff.nix
           ./roles/servers/configuration.nix
+          ./roles/servers/restic.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];
@@ -84,6 +68,7 @@
           ./hosts/nixos-web-bakery/prestashop.nix
           ./common/upgrade-diff.nix
           ./roles/servers/configuration.nix
+          ./roles/servers/restic.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];
@@ -106,6 +91,7 @@
           ./hosts/chonky/samba.nix
           ./common/upgrade-diff.nix
           ./roles/servers/configuration.nix
+          ./roles/servers/restic.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];
