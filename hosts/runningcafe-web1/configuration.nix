@@ -88,10 +88,10 @@
     };
     datasets = {
       "rpool/postgres16" = {
-        use_template = "hourly";
+        useTemplate = ["hourly"];
       };
       "rpool/redis-storage" = {
-        use_template = "hourly";
+        useTemplate = ["hourly"];
       };
     };
   };
