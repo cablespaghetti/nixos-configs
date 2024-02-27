@@ -89,6 +89,7 @@
           ./hosts/chonky/printer.nix
           ./hosts/chonky/joplin.nix
           ./hosts/chonky/samba.nix
+          ./hosts/chonky/syncoid.nix
           ./common/upgrade-diff.nix
           ./roles/servers/configuration.nix
           ./roles/servers/restic.nix
