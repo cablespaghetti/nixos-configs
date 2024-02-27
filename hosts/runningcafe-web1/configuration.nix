@@ -21,7 +21,7 @@
     enable = true;
     interval = "monthly";
   };
-  environment.systemPackages = with pkgs; [sanoid hdparm];
+  environment.systemPackages = with pkgs; [lzop mbuffer hdparm];
 
   # Set up zed for ZFS notification emails
   services.zfs.zed.settings = {
