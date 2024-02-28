@@ -93,6 +93,9 @@
       "rpool/redis-storage" = {
         useTemplate = ["hourly"];
       };
+      "rpool/object-storage" = {
+        useTemplate = ["hourly"];
+      };
     };
   };
 

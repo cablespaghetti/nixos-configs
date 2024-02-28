@@ -19,6 +19,10 @@
         source = "root@runningcafe-web1:rpool/redis-storage";
         target = "bigdata/runningcafe-web1/redis-storage";
       };
+      runningcafe-web1-object-storage = {
+        source = "root@runningcafe-web1:rpool/object-storage";
+        target = "bigdata/runningcafe-web1/object-storage";
+      };
     };
   };
 }
