@@ -53,7 +53,12 @@
     };
   };
   users.users.sam.extraGroups = ["docker"];
-  services.prometheus.exporters.zfs.enable = true;
+  services.prometheus.exporters.zfs = {
+    enable = true;
+    extraFlags = [
+      "--collector.dataset-snapshot"
+    ];
+  };
   services.grafana-agent = {
     settings = {
       metrics = {
