@@ -53,7 +53,7 @@
     };
   };
   users.users.sam.extraGroups = ["docker"];
-
+  services.prometheus.exporters.zfs.enable = true;
   services.grafana-agent = {
     settings = {
       metrics = {
@@ -65,6 +65,28 @@
                 job_name = "runningcafe-web1-docker";
                 static_configs = [
                   {targets = ["localhost:9323"];}
+                ];
+              }
+            ];
+          }
+          {
+            name = "nginx";
+            scrape_configs = [
+              {
+                job_name = "runningcafe-web1-nginx";
+                static_configs = [
+                  {targets = ["localhost:4040"];}
+                ];
+              }
+            ];
+          }
+          {
+            name = "zfs";
+            scrape_configs = [
+              {
+                job_name = "runningcafe-web1-zfs";
+                static_configs = [
+                  {targets = ["localhost:9134"];}
                 ];
               }
             ];
