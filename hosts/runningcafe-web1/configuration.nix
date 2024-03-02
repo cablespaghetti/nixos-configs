@@ -56,7 +56,9 @@
   services.prometheus.exporters.zfs = {
     enable = true;
     extraFlags = [
-      "--collector.dataset-snapshot"
+      "--no-collector.dataset-filesystem"
+      "--no-collector.dataset-volume"
+      "--web.disable-exporter-metrics"
     ];
   };
   services.grafana-agent = {

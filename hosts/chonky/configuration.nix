@@ -34,26 +34,6 @@
   };
   # this option does not work; will return error
   services.zfs.zed.enableMail = false;
-  services.prometheus.exporters.smartctl.enable = true;
-  services.grafana-agent = {
-    settings = {
-      metrics = {
-        configs = [
-          {
-            name = "smartctl";
-            scrape_configs = [
-              {
-                job_name = "smartctl";
-                static_configs = [
-                  {targets = ["localhost:9633"];}
-                ];
-              }
-            ];
-          }
-        ];
-      };
-    };
-  };
   services.atftpd.enable = true;
 
   # This value determines the NixOS release from which the default

@@ -135,12 +135,19 @@
               ];
             }
           ];
-        };
+        };  
 
         integrations = {
           agent.enabled = true;
           agent.scrape_integration = true;
-          node_exporter.enabled = true;
+          node_exporter = {
+            enabled = true;
+            include_exporter_metrics = false;
+            disable_collectors = [
+              "zfs"
+              "conntrack"
+            ];
+          };
         };
       };
     };
