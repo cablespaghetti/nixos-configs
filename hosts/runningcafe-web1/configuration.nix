@@ -110,8 +110,7 @@
       hourly = {
         autoprune = true;
         autosnap = true;
-        daily = 30;
-        monthly = 6;
+        daily = 14;
         hourly = 24;
       };
     };
