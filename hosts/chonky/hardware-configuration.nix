@@ -96,25 +96,6 @@
     };
   };
 
-  swapDevices = [
-    {
-      device = "/dev/disk/by-id/ata-TS64GSSD370_D260800539-part4";
-      discardPolicy = "both";
-      randomEncryption = {
-        enable = true;
-        allowDiscards = true;
-      };
-    }
-    {
-      device = "/dev/disk/by-id/ata-TS64GSSD370_D299992734-part4";
-      discardPolicy = "both";
-      randomEncryption = {
-        enable = true;
-        allowDiscards = true;
-      };
-    }
-  ];
-
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction

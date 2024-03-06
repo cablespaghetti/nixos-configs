@@ -18,13 +18,6 @@
     fsType = "ext4";
   };
   boot.tmp.cleanOnBoot = true;
-  zramSwap.enable = true;
-  swapDevices = [
-    {
-      device = "/.swapfile";
-      size = 1024;
-    }
-  ];
 
   networking = {
     nameservers = [
