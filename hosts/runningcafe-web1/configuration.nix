@@ -106,6 +106,7 @@
   # Backups are good
   services.sanoid = {
     enable = true;
+    interval = "*-*-* *:50:00";
     templates = {
       hourly = {
         autoprune = true;
