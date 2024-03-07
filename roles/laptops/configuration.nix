@@ -115,6 +115,7 @@
 
     # Can't live without these either
     floorp
+    gnome.gnome-tweaks
     gnomeExtensions.vitals
     gnomeExtensions.dash-to-dock
     gnomeExtensions.caffeine

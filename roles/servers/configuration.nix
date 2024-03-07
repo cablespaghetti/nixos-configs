@@ -135,7 +135,7 @@
               ];
             }
           ];
-        };  
+        };
 
         integrations = {
           agent.enabled = true;
