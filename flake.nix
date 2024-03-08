@@ -41,24 +41,6 @@
       .pkgs;
   in {
     nixosConfigurations = {
-      nixos-web-vps = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/nixos-web-vps/hardware-configuration.nix
-          ./common/configuration.nix
-          ./hosts/nixos-web-vps/configuration.nix
-          ./hosts/nixos-web-vps/wordpress.nix
-          ./common/upgrade-diff.nix
-          ./roles/servers/configuration.nix
-          ./roles/servers/restic.nix
-          home-manager.nixosModules.home-manager
-          agenix.nixosModules.default
-        ];
-        specialArgs = {
-          pkgs = pkgs.x86_64-linux;
-          inputs = inputs;
-        };
-      };
       nixos-web-bakery = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -139,6 +121,7 @@
         modules = [
           ./hosts/runningcafe-web2/hardware-configuration.nix
           ./hosts/runningcafe-web2/configuration.nix
+          ./hosts/runningcafe-web2/wordpress.nix
           ./common/configuration.nix
           ./common/upgrade-diff.nix
           ./roles/servers/configuration.nix

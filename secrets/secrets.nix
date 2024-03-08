@@ -13,10 +13,10 @@ in {
   "caddy-cloudflare.age".publicKeys = users ++ [chonky];
   "grafana-password.age".publicKeys = users ++ systems;
   "grafana-logs-password.age".publicKeys = users ++ systems;
-  "restic-environmentfile.age".publicKeys = users ++ [chonky nixos-web-vps nixos-web-bakery];
-  "restic-password.age".publicKeys = users ++ [chonky nixos-web-vps nixos-web-bakery];
+  "restic-environmentfile.age".publicKeys = users ++ [chonky nixos-web-vps nixos-web-bakery runningcafe-web2];
+  "restic-password.age".publicKeys = users ++ [chonky nixos-web-vps nixos-web-bakery runningcafe-web2];
   "smtp-username.age".publicKeys = users ++ systems;
   "smtp-password.age".publicKeys = users ++ systems;
-  "tonywinn-wordpress.age".publicKeys = users ++ [nixos-web-vps];
+  "tonywinn-wordpress.age".publicKeys = users ++ [nixos-web-vps runningcafe-web2];
   "hayleysbakery-database.age".publicKeys = users ++ [nixos-web-bakery];
 }
