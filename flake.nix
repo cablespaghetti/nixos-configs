@@ -134,6 +134,22 @@
           inputs = inputs;
         };
       };
+      runningcafe-web2 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/runningcafe-web2/hardware-configuration.nix
+          ./hosts/runningcafe-web2/configuration.nix
+          ./common/configuration.nix
+          ./common/upgrade-diff.nix
+          ./roles/servers/configuration.nix
+          home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
+        ];
+        specialArgs = {
+          pkgs = pkgs.x86_64-linux;
+          inputs = inputs;
+        };
+      };
     };
   };
 }
