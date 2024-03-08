@@ -12,6 +12,9 @@
     allowedUDPPorts = [config.services.tailscale.port];
     allowedTCPPorts = [443 80 22];
   };
+  networking.extraHosts = ''
+    192.168.26.117 runningcafe-web2
+  '';
   services.openssh.openFirewall = false;
   documentation.enable = false;
   environment.noXlibs = true;

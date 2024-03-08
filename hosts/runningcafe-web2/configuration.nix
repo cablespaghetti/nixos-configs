@@ -10,7 +10,7 @@
   networking.hostName = "runningcafe-web2";
   networking.firewall = {
     allowedUDPPorts = [config.services.tailscale.port];
-    allowedTCPPorts = [443 80];
+    allowedTCPPorts = [443 80 9200];
   };
   services.openssh.openFirewall = true;
   documentation.enable = false;
@@ -94,7 +94,7 @@
 
   # Backups are good
   services.sanoid = {
-    enable = false;
+    enable = true;
     interval = "*-*-* *:50:00";
     templates = {
       hourly = {
@@ -105,13 +105,7 @@
       };
     };
     datasets = {
-      "rpool/postgres16" = {
-        useTemplate = ["hourly"];
-      };
-      "rpool/redis-storage" = {
-        useTemplate = ["hourly"];
-      };
-      "rpool/object-storage" = {
+      "rpool/elasticsearch" = {
         useTemplate = ["hourly"];
       };
     };
