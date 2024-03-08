@@ -95,21 +95,21 @@
   # Backups are good
   services.sanoid = {
     enable = true;
-    interval = "*-*-* *:50:00";
+    interval = "*-*-* 02:50:00";
     templates = {
-      hourly = {
+      daily = {
         autoprune = true;
         autosnap = true;
         daily = 14;
-        hourly = 24;
+        monthly = 6;
       };
     };
     datasets = {
       "rpool/tonywinn-wordpress-database" = {
-        useTemplate = ["hourly"];
+        useTemplate = ["daily"];
       };
       "rpool/tonywinn-wordpress-html" = {
-        useTemplate = ["hourly"];
+        useTemplate = ["daily"];
       };
     };
   };

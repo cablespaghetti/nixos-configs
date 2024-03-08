@@ -116,6 +116,7 @@
         autosnap = true;
         daily = 14;
         hourly = 24;
+        monthly = 0;
       };
     };
     datasets = {
