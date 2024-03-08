@@ -10,7 +10,7 @@ let
   runningcafe-web2 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICCSRGmTrA2jj52Bm+8+JT+y0O8nizc5hOq7OONuLMDI root@nixos";
   systems = [nixos-web-vps nixos-web-bakery runningcafe-web1 runningcafe-web2 chonky];
 in {
-  "caddy-cloudflare.age".publicKeys = users ++ [chonky];
+  "caddy-cloudflare.age".publicKeys = users ++ [chonky runningcafe-web2];
   "grafana-password.age".publicKeys = users ++ systems;
   "grafana-logs-password.age".publicKeys = users ++ systems;
   "restic-environmentfile.age".publicKeys = users ++ [chonky nixos-web-vps nixos-web-bakery runningcafe-web2];
