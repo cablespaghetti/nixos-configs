@@ -105,9 +105,6 @@
       };
     };
     datasets = {
-      "rpool/elasticsearch" = {
-        useTemplate = ["hourly"];
-      };
       "rpool/tonywinn-wordpress-database" = {
         useTemplate = ["hourly"];
       };
