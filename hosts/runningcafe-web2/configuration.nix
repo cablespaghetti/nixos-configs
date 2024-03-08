@@ -108,6 +108,12 @@
       "rpool/elasticsearch" = {
         useTemplate = ["hourly"];
       };
+      "rpool/tonywinn-wordpress-database" = {
+        useTemplate = ["hourly"];
+      };
+      "rpool/tonywinn-wordpress-html" = {
+        useTemplate = ["hourly"];
+      };
     };
   };
 

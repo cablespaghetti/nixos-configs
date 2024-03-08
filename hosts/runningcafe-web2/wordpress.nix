@@ -128,8 +128,4 @@ in {
       reverse_proxy http://127.0.0.1:8080
     '';
   };
-  config.services.restic.backups.b2.paths = [
-    "/var/lib/containers/storage/volumes/tonywinn-wordpress-database"
-    "/var/lib/containers/storage/volumes/tonywinn-wordpress-html"
-  ];
 }
