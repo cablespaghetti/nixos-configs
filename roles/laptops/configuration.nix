@@ -126,6 +126,7 @@
     tilix
     rclone
     libreoffice
+    _86box
 
     # I am DevOps
     awscli2
