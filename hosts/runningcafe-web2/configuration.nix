@@ -21,7 +21,14 @@
     enable = true;
     interval = "monthly";
   };
-  environment.systemPackages = with pkgs; [lzop mbuffer hdparm];
+  environment.systemPackages = with pkgs; [
+    lzop
+    mbuffer
+    hdparm
+    python3
+    python311Packages.pip
+    pipenv
+  ];
 
   # Set up zed for ZFS notification emails
   services.zfs.zed.settings = {
