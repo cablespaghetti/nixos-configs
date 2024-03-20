@@ -80,6 +80,12 @@
                 static_configs = [
                   {targets = ["localhost:9323"];}
                 ];
+              },
+              {
+                job_name = "runningcafe-web2-keithbot";
+                static_configs = [
+                  {targets = ["localhost:10000"];}
+                ];
               }
             ];
           }
