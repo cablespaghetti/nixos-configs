@@ -132,6 +132,7 @@
     awscli2
     opentofu
     kubectl
+    kubectx
     nmap
     python3
     python311Packages.pip
