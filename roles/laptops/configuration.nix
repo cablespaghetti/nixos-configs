@@ -131,6 +131,7 @@
     # I am DevOps
     awscli2
     opentofu
+    kubectl
     nmap
     python3
     python311Packages.pip
