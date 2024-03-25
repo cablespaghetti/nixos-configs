@@ -134,7 +134,7 @@
     kubectl
     kubectx
     fluxcd
-    helm
+    kubernetes-helm
     nmap
     python3
     python311Packages.pip
