@@ -16,14 +16,28 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
 
   home-manager = {
     users.sam = {
       home.sessionVariables = {
         EDITOR = "vim";
       };
+      options.dconf.settings = {
+        "org/gnome/desktop/interface" = {
+          show-battery-percentage = true;
+        };
+        "org/gnome/settings-daemon/plugins/color" = {
+          night-light-enabled = true;
+        };
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybinding/custom0" = {
+          binding = "<Super>t";
+          command = "kgx";
+          name = "Terminal";
+        };
+      };
       programs = {
-        zsh.enable = true;
         starship.enable = true;
         librewolf = {
           enable = true;
