@@ -16,6 +16,8 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+
+  # I mean why not use ZSH...
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
@@ -24,7 +26,7 @@
       home.sessionVariables = {
         EDITOR = "vim";
       };
-      options.dconf.settings = {
+      dconf.settings = {
         "org/gnome/desktop/interface" = {
           show-battery-percentage = true;
         };
