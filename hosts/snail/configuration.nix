@@ -38,6 +38,12 @@
           command = "kgx";
           name = "Terminal";
         };
+        "org/gnome/shell/weather" = {
+          locations = "[<(uint32 2, <('Southampton', 'EGHI', true, [(0.88837258926511375, -0.024434609527920613)], [(0.88837258926511375, -0.024434609527920613)])>)>]";
+        };
+        "org/gnome/Weather" = {
+          locations = "[<(uint32 2, <('Southampton', 'EGHI', true, [(0.88837258926511375, -0.024434609527920613)], [(0.88837258926511375, -0.024434609527920613)])>)>]";
+        };
       };
       programs = {
         starship.enable = true;
