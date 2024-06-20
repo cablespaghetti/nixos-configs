@@ -1,12 +1,12 @@
 {
   inputs = {
-    nixpkgs.url = "github:cablespaghetti/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     # You can access packages and modules from different nixpkgs revs at the
     # same time. See 'unstable-packages' overlay in 'overlays/default.nix'.
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cloudflare-caddy = {
@@ -100,6 +100,25 @@
           inputs = inputs;
         };
       };
+
+      snail = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/snail/chrome-device.nix
+          ./hosts/snail/hardware-configuration.nix
+          ./hosts/snail/configuration.nix
+          ./common/configuration.nix
+          ./common/upgrade-diff.nix
+          ./roles/laptops/configuration.nix
+          home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
+        ];
+        specialArgs = {
+          pkgs = pkgs.x86_64-linux;
+          inputs = inputs;
+        };
+      };
+
       runningcafe-web1 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [

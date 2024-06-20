@@ -16,7 +16,6 @@
     networking.tempAddresses = "disabled";
     networking.useNetworkd = true;
 
-    # Define a user account. Don't forgeddt to set a password with ‘passwd’.
     users.users.sam = {
       isNormalUser = true;
       extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
@@ -25,29 +24,6 @@
         "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDLfRpMNL58CLVQxGpwz+LVMKa6vSSxOBO4Z9tlKYfZPLN2JwMzeYa3OaHP0Oug+/EBkAnq7I/lUDYiYCpBlzux81J3ieG4EcI07QSLVIFPnrCrezEyoxphTu6nd3GIL8n1UIGNPgcFI/JureEDjE0wrmocAHmfAOa8wKvWCvepQEHg34uvTDn9NkRXlMGBibyw2b056xJNjhgPgiy6d3NvGe5ArTJnZMhAA102PzPyM0uDQ/OITLhR8lJeYdDUShAL39H1bQvteRSCmCLeRhb63j0vwukjREAOR46xM6DrxMxAr695sxLtX1WVBnIjsXisRH76tzKj+Z0RXEuk7j9pYKwbKdivQkLJ/8tNoVOvHXe3wFQMqCmoO5Lap8yCokpAEsB/qwKM7N4ygi0gJEtQ52pHG3wrN5iFn7BXr++yET5SvNoEMYKnNqOiI6swZB5miVLR4+YJnQWlW0PbkEwrn5RZ9FBOr3ue9pJLSG8UYnqRpj5Qxj0QFcQMg2C9caM= sam@nixos-yoga"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKuyETk8fx+IXp7qvM1d75wSlI9TXND6ubNd8my1luVJ sam@tinymac"
       ];
-    };
-
-    home-manager = {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      users.sam = {
-        home.stateVersion = "23.05";
-        programs.git = {
-          enable = true;
-          userName = "Sam Weston";
-          userEmail = "11150054+cablespaghetti@users.noreply.github.com";
-          extraConfig.init.defaultBranch = "main";
-        };
-      };
-      users.root = {
-        home.stateVersion = "23.05";
-        programs.git = {
-          enable = true;
-          userName = "Sam Weston";
-          userEmail = "11150054+cablespaghetti@users.noreply.github.com";
-          extraConfig.init.defaultBranch = "main";
-        };
-      };
     };
 
     # Enable the OpenSSH daemon.

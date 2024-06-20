@@ -50,4 +50,27 @@
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
   # system.copySystemConfiguration = true;
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.sam = {
+      home.stateVersion = "24.05";
+      programs.git = {
+        enable = true;
+        userName = "Sam Weston";
+        userEmail = "11150054+cablespaghetti@users.noreply.github.com";
+        extraConfig.init.defaultBranch = "main";
+      };
+    };
+    users.root = {
+      home.stateVersion = "24.05";
+      programs.git = {
+        enable = true;
+        userName = "Sam Weston";
+        userEmail = "11150054+cablespaghetti@users.noreply.github.com";
+        extraConfig.init.defaultBranch = "main";
+      };
+    };
+  };
 }

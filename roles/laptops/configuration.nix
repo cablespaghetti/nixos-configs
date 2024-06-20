@@ -9,6 +9,9 @@
   inputs,
   ...
 }: {
+  # Enable pretty booting
+  boot.plymouth.enable = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -101,54 +104,48 @@
     extraGroups = ["networkmanager" "wheel" "docker"];
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1u"
-  ];
+  #nixpkgs.config.permittedInsecurePackages = [
+  #  "openssl-1.1.1u"
+  #];
 
-  virtualisation.docker = {
-    enable = true;
-  };
+  #virtualisation.docker = {
+  #  enable = true;
+  #};
 
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     imagemagick
 
-    # Can't live without these either
-    floorp
-    gnome.gnome-tweaks
-    gnomeExtensions.vitals
-    gnomeExtensions.dash-to-dock
+    librewolf
     gnomeExtensions.caffeine
-    joplin
-    joplin-desktop
+    #joplin-desktop
     gimp
-    beeper
+    #beeper
     tilix
-    rclone
-    libreoffice
-    _86Box
+    #rclone
+    #libreoffice
 
     # I am DevOps
-    awscli2
-    opentofu
-    kubectl
-    kubectx
-    fluxcd
-    kubernetes-helm
-    nmap
-    python3
-    python311Packages.pip
-    pipenv
-    hugo
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        bbenoist.nix
-        ms-python.python
-        ms-azuretools.vscode-docker
-        redhat.vscode-yaml
-        hashicorp.terraform
-        kamadorueda.alejandra
-      ];
-    })
+    #awscli2
+    #opentofu
+    #kubectl
+    #kubectx
+    #fluxcd
+    #kubernetes-helm
+    #nmap
+    #python3
+    #python311Packages.pip
+    #pipenv
+    #hugo
+    #(vscode-with-extensions.override {
+    #  vscodeExtensions = with vscode-extensions; [
+    #    bbenoist.nix
+    #    ms-python.python
+    #    ms-azuretools.vscode-docker
+    #    redhat.vscode-yaml
+    #    hashicorp.terraform
+    #    kamadorueda.alejandra
+    #  ];
+    #})
   ];
 }
