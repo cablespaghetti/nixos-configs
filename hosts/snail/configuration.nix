@@ -29,13 +29,11 @@
           enable = true;
           settings = {
             "identity.fxaccounts.enabled" = true;
-            "privacy.clearOnShutdown.cache" = false;
             "privacy.clearOnShutdown.cookies" = false;
-            "privacy.clearOnShutdown.formdata" = false;
             "privacy.clearOnShutdown.history" = false;
-            "privacy.clearOnShutdown.downloads" = false;
             "privacy.clearOnShutdown.sessions" = false;
             "services.sync.engine.passwords" = false;
+            "browser.bookmarks.addedImportButton" = false;
             "browser.startup.page" = 3;
           };
         };

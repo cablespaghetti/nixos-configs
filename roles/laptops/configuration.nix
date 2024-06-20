@@ -32,6 +32,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.desktopManager.xterm.enable = false;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -64,6 +65,18 @@
     description = "Sam Weston";
     extraGroups = ["networkmanager" "wheel" "docker"];
   };
+
+  # Exclude some Gnome apps from being installed.
+  environment.gnome.excludePackages = with pkgs.gnome; [
+    epiphany # web browser
+    yelp # help viewer
+    geary # email client
+    gnome-calendar # calendar
+    gnome-contacts # contacts
+    gnome-music # music
+    pkgs.gnome-photos # photos
+    pkgs.gnome-tour # tour app
+  ];
 
   environment.systemPackages = with pkgs; [
     imagemagick
