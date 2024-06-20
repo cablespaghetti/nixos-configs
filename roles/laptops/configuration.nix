@@ -74,6 +74,7 @@
     gnome-calendar # calendar
     gnome-contacts # contacts
     gnome-music # music
+    seahorse # passwords
     pkgs.gnome-photos # photos
     pkgs.gnome-tour # tour app
   ];
