@@ -21,7 +21,7 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
     enable = true;
-    oh-my-zsh = {
+    ohMyZsh = {
       enable = true;
       plugins = ["git"];
       theme = "robbyrussell";
