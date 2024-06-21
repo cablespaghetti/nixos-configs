@@ -19,8 +19,14 @@
 
   # I mean why not use ZSH...
   users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = ["git"];
+      theme = "robbyrussell";
+    };
+  };
   home-manager = {
     users.sam = {
       home.sessionVariables = {
@@ -46,7 +52,6 @@
         };
       };
       programs = {
-        starship.enable = true;
         librewolf = {
           enable = true;
           settings = {
