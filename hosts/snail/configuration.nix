@@ -21,21 +21,20 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    history.size = 10000;
+    histSize = 10000;
     ohMyZsh = {
       enable = true;
-      plugins = ["git"];
+      plugins = ["git" "battery"];
       theme = "robbyrussell";
     };
   };
+
   home-manager = {
     users.sam = {
       home.sessionVariables = {
         EDITOR = "vim";
       };
+      programs.zsh.enable = true;
       dconf.settings = {
         "org/gnome/desktop/interface" = {
           show-battery-percentage = true;
