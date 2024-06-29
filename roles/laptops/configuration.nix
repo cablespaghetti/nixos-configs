@@ -80,10 +80,11 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    imagemagick
-    librewolf
     gnomeExtensions.caffeine
-    joplin-desktop
+    fractal
     gimp
+    imagemagick
+    joplin-desktop
+    librewolf
   ];
 }
