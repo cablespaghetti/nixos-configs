@@ -17,7 +17,7 @@
     allowedUDPPorts = [config.services.tailscale.port 631 69];
     allowedTCPPorts = [22 631 80 443 8080];
   };
-  environment.systemPackages = with pkgs; [get_iplayer sanoid hdparm lzop mbuffer];
+  environment.systemPackages = with pkgs; [get_iplayer sanoid hdparm lzop mbuffer zfs-prune-snapshots];
 
   # Set up zed for ZFS notification emails
   services.zfs.zed.settings = {
