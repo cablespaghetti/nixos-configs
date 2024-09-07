@@ -33,4 +33,23 @@
       };
     };
   };
+
+  systemd.timers."zfs-snapshot-prune" = {
+    wantedBy = ["timers.target"];
+    timerConfig = {
+      OnCalendar = "daily";
+      Unit = "zfs-snapshot-prune.service";
+    };
+  };
+
+  systemd.services."zfs-snapshot-prune" = {
+    script = ''
+      set -eu
+      zfs-prune-snapshots 3M bigdata
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+    };
+  };
 }
