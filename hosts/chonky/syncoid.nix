@@ -45,7 +45,7 @@
   systemd.services."zfs-snapshot-prune" = {
     script = ''
       set -eu
-      zfs-prune-snapshots 3M bigdata
+      PATH=/run/current-system/sw/bin /run/current-system/sw/bin/zfs-prune-snapshots 3M bigdata
     '';
     serviceConfig = {
       Type = "oneshot";
