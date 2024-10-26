@@ -68,6 +68,7 @@
           ./hosts/chonky/jellyfin.nix
           ./hosts/chonky/transmission.nix
           ./hosts/chonky/nzb.nix
+          ./hosts/chonky/mumble.nix
           ./hosts/chonky/printer.nix
           ./hosts/chonky/joplin.nix
           ./hosts/chonky/samba.nix
