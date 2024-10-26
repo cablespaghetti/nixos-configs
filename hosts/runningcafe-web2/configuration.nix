@@ -113,7 +113,7 @@
       daily = {
         autoprune = true;
         autosnap = true;
-        daily = 14;
+        daily = 90;
         monthly = 6;
       };
     };
