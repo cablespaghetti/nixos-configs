@@ -14,7 +14,7 @@
     interval = "monthly";
   };
   networking.firewall = {
-    allowedUDPPorts = [config.services.tailscale.port 631 69];
+    allowedUDPPorts = [config.services.tailscale.port 631 69 53];
     allowedTCPPorts = [22 631 80 443 8080];
   };
   environment.systemPackages = with pkgs; [get_iplayer sanoid hdparm lzop mbuffer zfs-prune-snapshots];
