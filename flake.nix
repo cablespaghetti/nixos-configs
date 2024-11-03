@@ -64,6 +64,7 @@
         modules = [
           ./hosts/chonky/hardware-configuration.nix
           ./common/configuration.nix
+          ./hosts/chonky/adguard.nix
           ./hosts/chonky/configuration.nix
           ./hosts/chonky/jellyfin.nix
           ./hosts/chonky/transmission.nix
