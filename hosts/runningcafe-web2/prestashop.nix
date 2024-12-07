@@ -51,7 +51,7 @@
       redir https://hayleysbakery.com
     '';
     virtualHosts."hayleysbakery.com".extraConfig = ''
-      reverse_proxy http://127.0.0.1:8080
+      reverse_proxy http://127.0.0.1:8081
     '';
   };
   config.services.restic.backups.b2.paths = [
