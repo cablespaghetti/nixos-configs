@@ -48,9 +48,17 @@
     enable = true;
     email = "sam@weston.world";
     virtualHosts."www.hayleysbakery.com".extraConfig = ''
+      tls {
+        dns cloudflare {env.CLOUDFLARE_TOKEN}
+        resolvers 1.1.1.1
+      }
       redir https://hayleysbakery.com
     '';
     virtualHosts."hayleysbakery.com".extraConfig = ''
+      tls {
+        dns cloudflare {env.CLOUDFLARE_TOKEN}
+        resolvers 1.1.1.1
+      }
       reverse_proxy http://127.0.0.1:8081
     '';
   };
