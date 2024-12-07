@@ -147,6 +147,7 @@
           ./common/configuration.nix
           ./common/upgrade-diff.nix
           ./roles/servers/configuration.nix
+          ./roles/servers/restic.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
         ];
