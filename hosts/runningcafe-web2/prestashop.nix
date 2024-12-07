@@ -14,7 +14,7 @@
   config.virtualisation.oci-containers.containers = {
     hayleysbakery-database = {
       image = "docker.io/library/mariadb:11";
-      ports = ["127.0.0.1:3306:3306"];
+      ports = ["127.0.0.1:3307:3306"];
       environment = {
         MARIADB_DATABASE = "hayleysbakery";
         MARIADB_USER = "hayleysbakery";
@@ -29,7 +29,7 @@
     hayleysbakery-prestashop = {
       image = "docker.io/prestashop/prestashop:8.1";
       dependsOn = ["hayleysbakery-database"];
-      ports = ["8080:80"];
+      ports = ["8081:80"];
       environment = {
         DB_SERVER = "hayleysbakery-database";
         DB_NAME = "hayleysbakery";
