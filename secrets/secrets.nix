@@ -12,8 +12,8 @@ in {
   "caddy-cloudflare.age".publicKeys = users ++ [chonky runningcafe-web2];
   "grafana-password.age".publicKeys = users ++ systems;
   "grafana-logs-password.age".publicKeys = users ++ systems;
-  "restic-environmentfile.age".publicKeys = users ++ [chonky nixos-web-bakery];
-  "restic-password.age".publicKeys = users ++ [chonky nixos-web-bakery];
+  "restic-environmentfile.age".publicKeys = users ++ [chonky nixos-web-bakery runningcafe-web2];
+  "restic-password.age".publicKeys = users ++ [chonky nixos-web-bakery runningcafe-web2];
   "smtp-username.age".publicKeys = users ++ systems;
   "smtp-password.age".publicKeys = users ++ systems;
   "tonywinn-wordpress.age".publicKeys = users ++ [runningcafe-web2];
