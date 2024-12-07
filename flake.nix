@@ -142,6 +142,7 @@
         modules = [
           ./hosts/runningcafe-web2/hardware-configuration.nix
           ./hosts/runningcafe-web2/configuration.nix
+          ./hosts/runningcafe-web2/prestashop.nix
           ./hosts/runningcafe-web2/wordpress.nix
           ./common/configuration.nix
           ./common/upgrade-diff.nix

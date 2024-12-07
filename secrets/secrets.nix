@@ -17,5 +17,5 @@ in {
   "smtp-username.age".publicKeys = users ++ systems;
   "smtp-password.age".publicKeys = users ++ systems;
   "tonywinn-wordpress.age".publicKeys = users ++ [runningcafe-web2];
-  "hayleysbakery-database.age".publicKeys = users ++ [nixos-web-bakery];
+  "hayleysbakery-database.age".publicKeys = users ++ [nixos-web-bakery runningcafe-web2];
 }
