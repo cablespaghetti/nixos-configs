@@ -14,7 +14,6 @@
   };
   services.openssh.openFirewall = true;
   documentation.enable = false;
-  environment.noXlibs = true;
 
   # ZFS things
   services.zfs.autoScrub = {
