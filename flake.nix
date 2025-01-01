@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+
     # You can access packages and modules from different nixpkgs revs at the
     # same time. See 'unstable-packages' overlay in 'overlays/default.nix'.
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -35,7 +36,13 @@
             cloudflare-caddy.overlay
             overlays.unstable-packages
           ];
-          config = {allowUnfree = true;};
+          config = {
+            allowUnfree = true;
+            permittedInsecurePackages = [
+              "dotnet-sdk-6.0.428"
+              "aspnetcore-runtime-6.0.36"
+            ];
+          };
         };
       }))
       .pkgs;

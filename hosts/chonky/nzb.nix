@@ -5,6 +5,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [recyclarr];
+
   services.sabnzbd = {
     enable = true;
     user = config.services.jellyfin.user;

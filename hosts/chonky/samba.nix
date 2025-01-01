@@ -12,21 +12,21 @@
   services.samba = {
     enable = true;
     openFirewall = true;
-    securityType = "user";
-    extraConfig = ''
-      workgroup = WORKGROUP
-      server string = chonky
-      netbios name = chonky
-      security = user
-      #use sendfile = yes
-      #max protocol = smb2
-      # note: localhost is the ipv6 localhost ::1
-      hosts allow = 192.168.42. 127.0.0.1 localhost
-      hosts deny = 0.0.0.0/0
-      guest account = nobody
-      map to guest = bad user
-    '';
-    shares = {
+    settings = {
+      global = {
+        "invalid users" = [
+          "root"
+        ];
+        "passwd program" = "/run/wrappers/bin/passwd %u";
+        security = "user";
+        workgroup = "WORKGROUP";
+        "server string" = "chonky";
+        "netbios name" = "chonky";
+        "hosts allow" = ["192.168.42." "127.0.0.1" "localhost"];
+        "hosts deny" = ["0.0.0.0/0" "::/0"];
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
+      };
       video = {
         path = "/data/video";
         browseable = "yes";
