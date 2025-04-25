@@ -133,6 +133,7 @@
           ./hosts/runningcafe-web2/configuration.nix
           ./hosts/runningcafe-web2/prestashop.nix
           ./hosts/runningcafe-web2/wordpress.nix
+          ./hosts/runningcafe-web2/wordpressphil.nix
           ./common/configuration.nix
           ./common/upgrade-diff.nix
           ./roles/servers/configuration.nix
