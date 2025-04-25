@@ -62,7 +62,7 @@ in {
   config.virtualisation.oci-containers.containers = {
     philbdrums-db = {
       image = "docker.io/library/mariadb:11";
-      ports = ["127.0.0.1:3306:3307"];
+      ports = ["127.0.0.1:3308:3306"];
       environment = {
         MARIADB_DATABASE = "philbdrums";
         MARIADB_USER = "philbdrums";
@@ -82,7 +82,7 @@ in {
     philbdrums-nginx = {
       image = "docker.io/library/nginx:1.26-alpine";
       dependsOn = ["philbdrums-wordpress"];
-      ports = ["127.0.0.1:8081:80"];
+      ports = ["127.0.0.1:8082:80"];
       volumes = [
         "philbdrums-wordpress-html:/var/www/html"
         "${philbdrumsNginxConfig}:/etc/nginx/conf.d/default.conf"
@@ -91,7 +91,7 @@ in {
   };
   config.services.caddy = {
     virtualHosts."beta.philbdrums.co.uk".extraConfig = ''
-      reverse_proxy http://127.0.0.1:8081
+      reverse_proxy http://127.0.0.1:8082
     '';
   };
 }
